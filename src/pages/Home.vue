@@ -7,8 +7,6 @@ export default {
 </script>
 <template>
   <div class="home">
-    <div class="container">
-      <post-list></post-list>
-    </div>
+    <post-list></post-list>
   </div>
 </template>
