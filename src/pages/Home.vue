@@ -14,7 +14,7 @@ export default {
   apollo: {
     posts: gql`
       query {
-        posts {
+        posts(first: 6) {
           id
           slug
           title

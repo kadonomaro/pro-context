@@ -89,9 +89,10 @@ export default {
         <div class="post-detail__text" v-html="post.content.html"></div>
       </div>
     </main>
-    <aside v-if="posts.length" class="post-detail__side js-scroll-sidebar">
-      <post-aside :posts="posts" title="Похожие статьи"></post-aside>
-    </aside>
+    <template v-if="posts">
+      <aside v-if="posts.length" class="post-detail__side js-scroll-sidebar">
+        <post-aside :posts="posts" title="Похожие статьи"></post-aside></aside
+    ></template>
   </div>
 </template>
 

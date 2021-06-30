@@ -10,18 +10,18 @@ export default {
 
 <template>
   <header class="header">
-    <div class="header__top">
-      <div class="header__logo">
-        <the-logo></the-logo>
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__logo">
+          <the-logo></the-logo>
+        </div>
+        <div class="header__nav">
+          <the-navigation></the-navigation>
+        </div>
+        <div class="header__social">
+          <the-social-links></the-social-links>
+        </div>
       </div>
-      <div class="header__social">
-        <the-social-links></the-social-links>
-      </div>
-    </div>
-    <div class="header__bottom"></div>
-
-    <div class="header__nav">
-      <the-navigation></the-navigation>
     </div>
   </header>
 </template>
@@ -33,12 +33,12 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  padding: 12px 12px 0;
-  background-color: #fff;
-  box-shadow: 0 0 20px #f3f3f3;
+  padding: 12px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 20px rgba(#000, 0.1);
 }
 
-.header__top {
+.header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;

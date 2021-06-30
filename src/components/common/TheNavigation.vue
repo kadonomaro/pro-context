@@ -8,7 +8,9 @@ export default {
   <nav class="navigation">
     <ul class="navigation__list">
       <li class="navigation__item">
-        <router-link class="navigation__link" to="/">Статьи</router-link>
+        <router-link class="navigation__link" :to="{ name: 'Articles' }">
+          Все статьи
+        </router-link>
       </li>
       <li class="navigation__item">
         <router-link class="navigation__link" to="/">Автор</router-link>
@@ -35,16 +37,17 @@ export default {
 
 .navigation__link {
   display: block;
-  padding: 8px 10px 8px;
-  color: $color-link;
-  font-size: 14px;
+  padding: 8px 10px;
+  color: inherit;
+  font-size: 16px;
   font-weight: 500;
-  text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-bottom-color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+  &.router-link-exact-active {
+    color: $color-link;
+  }
   &:hover {
-    border-bottom-color: $color-link;
+    color: $color-link;
   }
 }
 </style>

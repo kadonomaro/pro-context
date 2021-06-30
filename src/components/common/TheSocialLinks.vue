@@ -68,9 +68,6 @@ export default {
 </template>
 
 <style lang="scss">
-.social-links {
-}
-
 .social-links__list {
   display: flex;
   margin: 0 -4px;
@@ -79,7 +76,28 @@ export default {
 }
 
 .social-links__item {
+  position: relative;
   margin: 0 4px;
+  transition: transform 0.2s ease-in;
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    background-color: rgba(#000, 0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.2s ease-in;
+    filter: blur(2px);
+  }
+  &:hover {
+    transform: translateY(-3px);
+    &::before {
+      transform: scale(1) translateY(3px);
+    }
+  }
 }
 
 .social-links__link {
