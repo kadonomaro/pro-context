@@ -76,6 +76,9 @@ export default {
   transition: box-shadow 0.2s ease-in;
   &:hover {
     box-shadow: 0 0 7px #e2e2e2;
+    .post-card__image img {
+      transform: translate(-50%, -53%);
+    }
   }
 }
 
@@ -107,6 +110,7 @@ export default {
     top: 50%;
     width: 75%;
     transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-in;
   }
 }
 

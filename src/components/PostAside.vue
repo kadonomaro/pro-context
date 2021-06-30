@@ -12,6 +12,7 @@ export default {
       type: Array,
       required: true,
     },
+    title: String,
   },
   data() {
     return {
@@ -43,14 +44,14 @@ export default {
 
 <template>
   <div class="post-aside js-scroll-sidebar-wrapper">
-    <h2 class="post-aside__title">Рекомендуем для чтения</h2>
+    <h2 class="post-aside__title">{{ title }}</h2>
     <post-list :posts="posts" is-vertical></post-list>
   </div>
 </template>
 
 <style lang="scss">
 .post-aside {
-  padding: 24px 24px 0;
+  padding: 16px 16px 0;
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0 0 25px #e2e2e2;

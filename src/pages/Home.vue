@@ -46,7 +46,10 @@ export default {
       <post-list v-if="posts" :posts="posts"></post-list>
     </main>
     <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts">
-      <post-aside :posts="recommendedPosts"></post-aside>
+      <post-aside
+        :posts="recommendedPosts"
+        title="Рекомендуем для чтения"
+      ></post-aside>
     </aside>
   </div>
 </template>
