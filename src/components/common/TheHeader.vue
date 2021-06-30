@@ -47,6 +47,9 @@ export default {
 .header__logo {
 }
 
+.header__nav {
+}
+
 .header__social {
   flex-shrink: 0;
 }

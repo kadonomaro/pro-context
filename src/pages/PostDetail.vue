@@ -105,6 +105,10 @@ export default {
 .post-detail__main {
   border-radius: 16px;
   overflow: hidden;
+  &:only-child {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
 
 .post-detail__side {
@@ -131,5 +135,26 @@ export default {
 }
 
 .post-detail__text {
+  line-height: 28px;
+  ul,
+  ol {
+    margin: 15px 0;
+    padding-left: 25px;
+  }
+  h2,
+  h3 {
+    margin: 15px 0;
+  }
+  p {
+    margin: 10px 0;
+  }
+  pre {
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-radius: 12px;
+  }
+  img {
+    border-radius: 12px;
+  }
 }
 </style>

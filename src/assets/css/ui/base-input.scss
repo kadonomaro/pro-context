@@ -1,0 +1,17 @@
+.base-input {
+    width: 100%;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 2px solid #c4cdd5;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color .2s ease-in-out;
+    &:hover {
+        border-color: $color-link;
+    }
+    &:focus {
+        outline: none;
+    }
+}

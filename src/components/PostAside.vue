@@ -33,7 +33,7 @@ export default {
         stickyScroll({
           el,
           elWrap,
-          topMargin: 80,
+          topMargin: 90,
           classNameDivider: "footer",
         });
       }

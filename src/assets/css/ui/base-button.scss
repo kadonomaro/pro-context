@@ -1,0 +1,16 @@
+.base-button {
+    padding: 8px 16px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 500;
+    background-color: $color-link;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+    &:hover {
+        background-color: darken($color-link, 5%);
+    }
+}

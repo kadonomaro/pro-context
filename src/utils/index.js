@@ -49,4 +49,8 @@ const throttle = (fn, wait) => {
   };
 };
 
-export { stickyScroll, throttle };
+const uniqueArray = (value, index, self) => {
+  return self.indexOf(value) === index;
+};
+
+export { stickyScroll, throttle, uniqueArray };

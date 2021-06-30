@@ -7,7 +7,7 @@ export default {
 <template>
   <div class="logo">
     <img src="@/assets/logo.svg" alt="WordEd" />
-    <span class="logo__text">WordEd</span>
+    <span class="logo__text"><span>W</span>ordEd</span>
   </div>
 </template>
 
@@ -22,10 +22,14 @@ export default {
 
 .logo__text {
   display: block;
-  margin-left: 8px;
-  color: #fff;
-  font-size: 24px;
+  margin-left: -32px;
+  color: #a2a2a2;
+  font-size: 20px;
   font-weight: 600;
-  -webkit-text-stroke: 1px #909090;
+  span {
+    color: #007ae9;
+    font-size: 32px;
+    letter-spacing: -0.1em;
+  }
 }
 </style>
