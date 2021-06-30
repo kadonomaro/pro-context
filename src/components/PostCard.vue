@@ -6,6 +6,7 @@ export default {
       type: Object,
       required: true,
     },
+    isVertical: Boolean,
   },
   computed: {
     previewImage() {
@@ -25,7 +26,7 @@ export default {
     class="post-card-link"
     :to="{ name: 'PostDetail', params: { slug: post.slug } }"
   >
-    <article class="post-card">
+    <article class="post-card" :class="{ 'post-card--vertical': isVertical }">
       <div
         class="post-card__image"
         :style="{ background: backgroundImageColor }"
@@ -33,7 +34,7 @@ export default {
         <img :src="previewImage" :alt="post.title" />
       </div>
       <div class="post-card__content">
-        <div class="post-card__service">
+        <div class="post-card__head">
           <div class="post-card__tags">
             <div class="post-card__tag" v-for="tag in post.tags" :key="tag">
               {{ tag }}
@@ -43,6 +44,16 @@ export default {
         </div>
         <h2 class="post-card__title">{{ post.title }}</h2>
         <div class="post-card__text">{{ post.excerpt }}</div>
+        <footer class="post-card__footer" v-if="post.author">
+          <div class="post-card__author">
+            <img
+              :src="post.author.picture.url"
+              :alt="post.author.name"
+              class="post-card__author-image"
+            />
+            <span class="post-card__author-name">{{ post.author.name }}</span>
+          </div>
+        </footer>
       </div>
     </article>
   </router-link>
@@ -58,8 +69,9 @@ export default {
   display: flex;
   height: 100%;
   text-decoration: none;
+  background-color: #fff;
   border-radius: 16px;
-  box-shadow: 0 0 25px #f2f2f5;
+  box-shadow: 0 0 25px #e2e2e2;
   overflow: hidden;
   transition: box-shadow 0.2s ease-in;
   &:hover {
@@ -67,10 +79,21 @@ export default {
   }
 }
 
+.post-card--vertical {
+  flex-direction: column;
+  box-shadow: none;
+  &:hover {
+    box-shadow: none;
+  }
+  .post-card__image {
+    width: 100%;
+  }
+}
+
 .post-card__image {
   position: relative;
   flex-shrink: 0;
-  width: 250px;
+  width: 200px;
   overflow: hidden;
   &::before {
     content: "";
@@ -82,20 +105,22 @@ export default {
     left: 50%;
     top: 50%;
     width: 75%;
-    height: 75%;
     transform: translate(-50%, -50%);
   }
 }
 
 .post-card__content {
-  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
 }
 
-.post-card__service {
+.post-card__head {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  color: #6e798c;
 }
 
 .post-card__tags {
@@ -111,20 +136,45 @@ export default {
 }
 
 .post-card__date {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .post-card__title {
   margin: 0 0 15px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
-  line-height: 32px;
+  line-height: 24px;
 }
 
 .post-card__text {
+  flex-grow: 1;
   color: #374a59;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
+}
+
+.post-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.post-card__author {
+  display: flex;
+  align-items: center;
+  color: #007ae9;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.post-card__author-image {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 </style>

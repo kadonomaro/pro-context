@@ -1,37 +1,23 @@
 <script>
-import gql from "graphql-tag";
 import PostCard from "@/components/PostCard";
 
 export default {
   name: "PostList",
   components: { PostCard },
-  apollo: {
-    posts: gql`
-      query {
-        posts {
-          id
-          slug
-          title
-          excerpt
-          createdAt
-          tags
-          backgroundImageColor {
-            hex
-          }
-          previewImage {
-            url
-          }
-        }
-      }
-    `,
+  props: {
+    posts: {
+      type: Array,
+      required: true,
+    },
+    isVertical: Boolean,
   },
 };
 </script>
 
 <template>
-  <div class="post-list">
+  <div class="post-list" :class="{ 'post-list--vertical': isVertical }">
     <div class="post-list__card" v-for="post in posts" :key="post.id">
-      <post-card :post="post"></post-card>
+      <post-card :post="post" :is-vertical="isVertical"></post-card>
     </div>
   </div>
 </template>
@@ -40,14 +26,25 @@ export default {
 .post-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -8px;
+  margin: 0 -12px;
+}
+
+.post-list--vertical {
+  display: block;
+  margin: 0;
+  .post-list__card {
+    @media screen and (min-width: 768px) {
+      max-width: 100%;
+      padding: 0 0 24px;
+    }
+  }
 }
 
 .post-list__card {
   @media screen and (min-width: 768px) {
     flex-basis: 50%;
     max-width: 50%;
-    padding: 0 8px 16px;
+    padding: 0 12px 24px;
     box-sizing: border-box;
   }
 }

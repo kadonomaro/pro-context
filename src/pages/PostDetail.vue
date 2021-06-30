@@ -31,7 +31,7 @@ export default {
 <template>
   <div class="post-detail">
     <template v-if="post">
-      <img :src="post.coverImage.url" alt="post.title" />
+      <img v-if="post.coverImage" :src="post.coverImage.url" alt="post.title" />
       <h1>{{ post.title }}</h1>
       <div v-html="post.content.html"></div>
     </template>
