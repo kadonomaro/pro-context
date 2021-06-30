@@ -12,10 +12,13 @@ export default {
           id
           slug
           title
-          content {
-            html
+          excerpt
+          createdAt
+          tags
+          backgroundImageColor {
+            hex
           }
-          coverImage {
+          previewImage {
             url
           }
         }
@@ -42,8 +45,8 @@ export default {
 
 .post-list__card {
   @media screen and (min-width: 768px) {
-    flex-basis: 25%;
-    max-width: 25%;
+    flex-basis: 50%;
+    max-width: 50%;
     padding: 0 8px 16px;
     box-sizing: border-box;
   }
