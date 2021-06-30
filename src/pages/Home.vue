@@ -1,13 +1,14 @@
 <script>
 import gql from "graphql-tag";
 import PostList from "@/components/PostList";
+import PostAside from "@/components/PostAside";
 
 export default {
   name: "Home",
-  components: { PostList },
+  components: { PostAside, PostList },
   computed: {
     recommendedPosts() {
-      return this.posts.filter((post) => post.isShowingInAside);
+      return this.posts?.filter((post) => post.isShowingInAside);
     },
   },
   apollo: {
@@ -44,9 +45,8 @@ export default {
     <main class="home__main">
       <post-list v-if="posts" :posts="posts"></post-list>
     </main>
-    <aside class="home__side">
-      <h2 class="home__subtitle">Рекомендуем для чтения</h2>
-      <post-list v-if="posts" :posts="recommendedPosts" is-vertical></post-list>
+    <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts">
+      <post-aside :posts="recommendedPosts"></post-aside>
     </aside>
   </div>
 </template>
@@ -65,10 +65,5 @@ export default {
   flex-basis: 300px;
   flex-shrink: 0;
   max-width: 300px;
-}
-
-.home__subtitle {
-  margin: 0 0 10px;
-  font-size: 24px;
 }
 </style>
