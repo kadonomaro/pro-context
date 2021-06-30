@@ -8,11 +8,6 @@ export default {
   <nav class="navigation">
     <ul class="navigation__list">
       <li class="navigation__item">
-        <router-link class="navigation__link" :to="{ name: 'Home' }"
-          >На главную</router-link
-        >
-      </li>
-      <li class="navigation__item">
         <router-link class="navigation__link" to="/">Статьи</router-link>
       </li>
       <li class="navigation__item">

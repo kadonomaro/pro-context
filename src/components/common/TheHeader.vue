@@ -40,6 +40,7 @@ export default {
 
 .header__top {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -47,6 +48,7 @@ export default {
 }
 
 .header__social {
+  flex-shrink: 0;
 }
 
 .header__nav {

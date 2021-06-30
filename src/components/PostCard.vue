@@ -10,7 +10,7 @@ export default {
   },
   computed: {
     previewImage() {
-      return this.post.previewImage?.url || "https://via.placeholder.com/400";
+      return this.post.previewImage?.url || "/static/empty-photo.svg";
     },
     backgroundImageColor() {
       return this.post.backgroundImageColor
@@ -81,6 +81,7 @@ export default {
 
 .post-card--vertical {
   flex-direction: column;
+  background-color: #f9f9f9;
   box-shadow: none;
   &:hover {
     box-shadow: none;

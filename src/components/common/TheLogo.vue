@@ -10,8 +10,8 @@ export default {
 
 <style lang="scss">
 .logo {
-  width: 200px;
-  height: 100px;
+  width: 120px;
+  height: 60px;
   background-color: #2c3e50;
 }
 </style>

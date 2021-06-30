@@ -49,6 +49,14 @@ export default {
 </template>
 
 <style lang="scss">
+.post-aside {
+  padding: 24px 24px 0;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 25px #e2e2e2;
+  box-sizing: border-box;
+}
+
 .post-aside__title {
   margin: 0 0 10px;
   font-size: 24px;
