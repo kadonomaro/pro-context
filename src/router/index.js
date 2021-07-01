@@ -17,10 +17,10 @@ const routes = [
       import(/* webpackChunkName: "articles" */ "../pages/Articles.vue"),
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/authors",
+    name: "Authors",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../pages/About.vue"),
+      import(/* webpackChunkName: "authors" */ "../pages/Authors.vue"),
   },
   {
     path: "/post/:slug",

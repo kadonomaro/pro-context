@@ -1,0 +1,67 @@
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  name: "AuthorCard",
+  props: {
+    author: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    authorImage() {
+      return this.author.picture?.url || "/static/empty-author.jpg";
+    },
+  },
+  methods: {
+    ...mapActions(["setFilter"]),
+    goToArticle() {
+      this.setFilter({ author: this.author.name });
+      this.$router.push({ name: "Articles" });
+    },
+  },
+};
+</script>
+
+<template>
+  <article class="author-card" @click="goToArticle">
+    <div class="author-card__image">
+      <img :src="authorImage" :alt="author.name" />
+    </div>
+    <div class="author-card__text">
+      <div class="author-card__name">{{ author.name }}</div>
+      <div class="author-card__title">{{ author.title }}</div>
+    </div>
+  </article>
+</template>
+
+<style lang="scss">
+.author-card {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.author-card__image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.author-card__name {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.author-card__title {
+  color: #6e798c;
+  font-size: 14px;
+}
+</style>

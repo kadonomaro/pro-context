@@ -42,20 +42,23 @@ export default {
 </script>
 <template>
   <div class="home">
-    <main class="home__main">
-      <post-list v-if="posts" :posts="posts"></post-list>
-    </main>
-    <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts">
-      <post-aside
-        :posts="recommendedPosts"
-        title="Рекомендуем для чтения"
-      ></post-aside>
-    </aside>
+    <h1 class="title-main">Популярные статьи</h1>
+    <div class="home__inner">
+      <main class="home__main">
+        <post-list v-if="posts" :posts="posts"></post-list>
+      </main>
+      <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts">
+        <post-aside
+          :posts="recommendedPosts"
+          title="Рекомендуем для чтения"
+        ></post-aside>
+      </aside>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-.home {
+.home__inner {
   display: flex;
   align-items: flex-start;
 }

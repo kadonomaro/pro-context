@@ -16,6 +16,9 @@ export default {
     postsTags() {
       return this.posts?.flatMap((post) => post.tags).filter(uniqueArray);
     },
+    postsAuthors() {
+      return this.authors?.map((author) => author.name);
+    },
     filteredPosts() {
       return this.posts
         ?.filter((post) => {
@@ -31,6 +34,13 @@ export default {
     },
   },
   apollo: {
+    authors: gql`
+      query {
+        authors {
+          name
+        }
+      }
+    `,
     posts: gql`
       query {
         posts {
@@ -58,21 +68,25 @@ export default {
   },
 };
 </script>
+
 <template>
   <div class="articles">
-    <aside class="articles__side">
-      <div class="articles__filter js-scroll-filter">
-        <post-filter :tags="postsTags"></post-filter>
-      </div>
-    </aside>
-    <main class="articles__main">
-      <post-list v-if="filteredPosts" :posts="filteredPosts"></post-list>
-    </main>
+    <h1 class="title-main">Все статьи</h1>
+    <div class="articles__inner">
+      <aside class="articles__side">
+        <div class="articles__filter js-scroll-filter">
+          <post-filter :tags="postsTags" :authors="postsAuthors"></post-filter>
+        </div>
+      </aside>
+      <main class="articles__main">
+        <post-list v-if="filteredPosts" :posts="filteredPosts"></post-list>
+      </main>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-.articles {
+.articles__inner {
   display: flex;
   align-items: flex-start;
 }

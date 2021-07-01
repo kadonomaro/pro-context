@@ -13,7 +13,9 @@ export default {
         </router-link>
       </li>
       <li class="navigation__item">
-        <router-link class="navigation__link" to="/">Автор</router-link>
+        <router-link class="navigation__link" :to="{ name: 'Authors' }"
+          >Авторы</router-link
+        >
       </li>
     </ul>
   </nav>

@@ -6,6 +6,7 @@ export default {
   name: "PostFilter",
   props: {
     tags: Array,
+    authors: Array,
   },
   data() {
     return {
@@ -23,11 +24,6 @@ export default {
     }),
     isDisabledClearButton() {
       return Object.values(this.filter).every((value) => value === "all");
-    },
-
-    // temporary data
-    authors() {
-      return ["Ronak Ganatra", "Jamie Barton"];
     },
   },
   mounted() {
