@@ -34,8 +34,8 @@ export default {
   left: 0;
   right: 0;
   padding: 12px;
-  background-color: #f7f7f7;
-  box-shadow: 0 0 20px rgba(#000, 0.1);
+  background-color: #f2f2f2;
+  box-shadow: 0 0 20px rgba(#000, 0.2);
 }
 
 .header__inner {

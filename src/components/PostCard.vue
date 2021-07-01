@@ -124,7 +124,10 @@ export default {
 .post-card__content {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 16px;
+  @include bp($bp-mobile) {
+    padding: 24px;
+  }
 }
 
 .post-card__head {
@@ -153,17 +156,23 @@ export default {
 
 .post-card__title {
   margin: 0 0 15px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 24px;
+  @include bp($bp-mobile) {
+    font-size: 20px;
+  }
 }
 
 .post-card__text {
   flex-grow: 1;
   color: #374a59;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 22px;
+  @include bp($bp-mobile) {
+    font-size: 16px;
+  }
 }
 
 .post-card__footer {

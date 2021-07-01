@@ -1,6 +1,7 @@
 <script>
 import { mapActions } from "vuex";
 import gql from "graphql-tag";
+import { metaInfo } from "@/libs/MetaInfo";
 import PostAside from "@/components/PostAside";
 
 export default {
@@ -81,6 +82,12 @@ export default {
       },
     },
   },
+  metaInfo() {
+    return {
+      ...metaInfo.get("post"),
+      title: this.post?.title + " | WordEd",
+    };
+  },
 };
 </script>
 
@@ -154,8 +161,11 @@ export default {
 }
 
 .post-detail__content {
-  padding: 16px 24px;
+  padding: 8px 12px;
   background-color: #fff;
+  @include bp($bp-mobile) {
+    padding: 16px 24px;
+  }
 }
 
 .post-detail__date {
@@ -183,11 +193,20 @@ export default {
 
 .post-detail__title {
   margin: 0 0 20px;
+  font-size: 20px;
   text-align: center;
+  @include bp($bp-desktop-sm) {
+    font-size: 30px;
+  }
 }
 
 .post-detail__text {
-  line-height: 28px;
+  line-height: 22px;
+  font-size: 14px;
+  @include bp($bp-mobile) {
+    line-height: 28px;
+    font-size: 16px;
+  }
   ul,
   ol {
     margin: 15px 0;
@@ -206,6 +225,7 @@ export default {
     border-radius: 12px;
   }
   img {
+    height: auto;
     border-radius: 12px;
   }
 }

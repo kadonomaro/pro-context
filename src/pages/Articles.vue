@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 import { uniqueArray } from "@/utils";
 import PostList from "@/components/PostList";
 import PostFilter from "@/components/PostFilter";
+import { metaInfo } from "@/libs/MetaInfo";
 
 export default {
   name: "Articles",
@@ -65,6 +66,9 @@ export default {
         }
       }
     `,
+  },
+  metaInfo() {
+    return metaInfo.get("articles");
   },
 };
 </script>

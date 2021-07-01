@@ -1,6 +1,7 @@
 <script>
 import gql from "graphql-tag";
 import AuthorList from "@/components/AuthorList";
+import { metaInfo } from "@/libs/MetaInfo";
 
 export default {
   name: "Authors",
@@ -18,6 +19,9 @@ export default {
         }
       }
     `,
+  },
+  metaInfo() {
+    return metaInfo.get("authors");
   },
 };
 </script>

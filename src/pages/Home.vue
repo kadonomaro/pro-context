@@ -1,5 +1,6 @@
 <script>
 import gql from "graphql-tag";
+import { metaInfo } from "@/libs/MetaInfo";
 import PostList from "@/components/PostList";
 import PostAside from "@/components/PostAside";
 
@@ -37,6 +38,9 @@ export default {
         }
       }
     `,
+  },
+  metaInfo() {
+    return metaInfo.get("home");
   },
 };
 </script>
