@@ -27,7 +27,7 @@ img {
     line-height: 30px;
     font-weight: 700;
     @include bp($bp-desktop-sm) {
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         font-size: 36px;
         line-height: 44px;
     }

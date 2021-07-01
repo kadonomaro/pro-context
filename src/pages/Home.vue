@@ -3,10 +3,11 @@ import gql from "graphql-tag";
 import { metaInfo } from "@/libs/MetaInfo";
 import PostList from "@/components/PostList";
 import PostAside from "@/components/PostAside";
+import HomeBanner from "@/components/HomeBanner";
 
 export default {
   name: "Home",
-  components: { PostAside, PostList },
+  components: { HomeBanner, PostAside, PostList },
   computed: {
     recommendedPosts() {
       return this.posts?.filter((post) => post.isShowingInAside);
@@ -46,6 +47,9 @@ export default {
 </script>
 <template>
   <div class="home">
+    <div class="home__banner">
+      <home-banner></home-banner>
+    </div>
     <h1 class="title-main">Популярные статьи</h1>
     <div class="home__inner">
       <main class="home__main">
@@ -66,6 +70,13 @@ export default {
   @include bp($bp-desktop-sm) {
     display: flex;
     align-items: flex-start;
+  }
+}
+
+.home__banner {
+  margin-bottom: 20px;
+  @include bp($bp-desktop-sm) {
+    margin-bottom: 40px;
   }
 }
 
