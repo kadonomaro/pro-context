@@ -15,12 +15,12 @@ export default {
         <div class="header__logo">
           <the-logo></the-logo>
         </div>
-        <div class="header__nav">
-          <the-navigation></the-navigation>
-        </div>
         <div class="header__social">
           <the-social-links></the-social-links>
         </div>
+      </div>
+      <div class="header__nav">
+        <the-navigation></the-navigation>
       </div>
     </div>
   </header>
@@ -44,10 +44,13 @@ export default {
   justify-content: space-between;
 }
 
-.header__logo {
-}
-
 .header__nav {
+  @include bp($bp-mobile) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .header__social {

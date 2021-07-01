@@ -1,4 +1,5 @@
 <script>
+import { mapActions } from "vuex";
 import gql from "graphql-tag";
 import PostAside from "@/components/PostAside";
 
@@ -10,12 +11,21 @@ export default {
       tags: [],
     };
   },
+  methods: {
+    ...mapActions(["setFilter"]),
+    goToArticles(tag) {
+      this.setFilter({ tag });
+      this.$router.push({ name: "Articles" });
+    },
+  },
   apollo: {
     post: {
       query: gql`
         query GetPostBySlug($slug: String!) {
           post(where: { slug: $slug }) {
             title
+            tags
+            createdAt
             tags
             content {
               html
@@ -87,6 +97,19 @@ export default {
       <div class="post-detail__content">
         <h1 class="post-detail__title">{{ post.title }}</h1>
         <div class="post-detail__text" v-html="post.content.html"></div>
+        <footer class="post-detail__footer">
+          <div class="post-detail__tags">
+            <div
+              class="post-detail__tag"
+              v-for="tag in post.tags"
+              :key="tag"
+              @click="goToArticles(tag)"
+            >
+              {{ tag }}
+            </div>
+          </div>
+          <div class="post-detail__date">{{ post.createdAt | date }}</div>
+        </footer>
       </div>
     </main>
     <template v-if="posts">
@@ -133,6 +156,29 @@ export default {
 .post-detail__content {
   padding: 16px 24px;
   background-color: #fff;
+}
+
+.post-detail__date {
+  color: #6e798c;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.post-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.post-detail__tag {
+  color: $color-link;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+  &:not(:last-child) {
+    margin-right: 12px;
+  }
 }
 
 .post-detail__title {

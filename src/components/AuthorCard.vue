@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     ...mapActions(["setFilter"]),
-    goToArticle() {
+    goToArticles() {
       this.setFilter({ author: this.author.name });
       this.$router.push({ name: "Articles" });
     },
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <article class="author-card" @click="goToArticle">
+  <article class="author-card" @click="goToArticles">
     <div class="author-card__image">
       <img :src="authorImage" :alt="author.name" />
     </div>

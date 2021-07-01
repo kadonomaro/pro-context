@@ -7,7 +7,7 @@ export default {
 <template>
   <div class="logo">
     <router-link :to="{ name: 'Home' }">
-      <img src="@/assets/logo.svg" alt="WordEd" />
+      <img src="@/assets/images/logo.svg" alt="WordEd" />
     </router-link>
     <span class="logo__text"><span>W</span>ordEd</span>
   </div>

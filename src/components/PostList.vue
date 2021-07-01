@@ -27,7 +27,7 @@ export default {
   @include bp($bp-mobile) {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -12px;
+    margin: 0 -12px -24px;
   }
 }
 

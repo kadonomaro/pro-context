@@ -18,7 +18,14 @@ export default {
 
 <style lang="scss">
 #app {
-  padding-top: 90px;
+  padding-top: 120px;
   background: #f7f7f7;
+  @include bp($bp-mobile) {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding-top: 90px;
+    box-sizing: border-box;
+  }
 }
 </style>
