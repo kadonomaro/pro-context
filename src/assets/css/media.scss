@@ -1,0 +1,10 @@
+$bp-mobile: 600px;
+$bp-desktop-sm: 992px;
+$bp-desktop-md: 1280px;
+
+
+@mixin bp($point) {
+    @media only screen and (min-width: #{$point}) {
+        @content;
+    }
+}

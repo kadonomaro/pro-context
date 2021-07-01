@@ -1,6 +1,6 @@
 <script>
 import { mapActions, mapState } from "vuex";
-import { stickyScroll, throttle } from "@/utils";
+import { isMobile, stickyScroll, throttle } from "@/utils";
 
 export default {
   name: "PostFilter",
@@ -45,15 +45,17 @@ export default {
       this.setFilter(this.filter);
     },
     stickyImageScroll() {
-      const el = document.querySelector(".js-scroll-filter");
-      const elWrap = document.querySelector(".js-scroll-filter-wrapper");
-      if (el && elWrap) {
-        stickyScroll({
-          el,
-          elWrap,
-          topMargin: 90,
-          classNameDivider: "footer",
-        });
+      if (!isMobile()) {
+        const el = document.querySelector(".js-scroll-filter");
+        const elWrap = document.querySelector(".js-scroll-filter-wrapper");
+        if (el && elWrap) {
+          stickyScroll({
+            el,
+            elWrap,
+            topMargin: 90,
+            classNameDivider: "footer",
+          });
+        }
       }
     },
   },
@@ -118,10 +120,15 @@ export default {
 }
 
 .post-filter__form {
+  display: flex;
+  flex-wrap: wrap;
   padding: 8px;
   background-color: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 12px;
+  @include bp($bp-desktop-sm) {
+    display: block;
+  }
 }
 
 .post-filter__name {
@@ -133,15 +140,28 @@ export default {
 
 .post-filter__label {
   display: block;
-  margin-bottom: 15px;
+  flex-grow: 1;
+  width: calc(50% - 8px);
+  &:not(:last-of-type) {
+    margin-right: 8px;
+  }
+  @include bp($bp-desktop-sm) {
+    width: 100%;
+    margin: 0 0 15px;
+  }
 }
 
 .post-filter__controls {
   display: flex;
+  flex-grow: 1;
+  width: 100%;
   margin: 25px -4px 0;
   button {
     flex-basis: 50%;
     margin: 0 4px;
+  }
+  @include bp($bp-desktop-sm) {
+    margin: 25px 0 0;
   }
 }
 </style>

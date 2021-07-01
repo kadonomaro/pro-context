@@ -47,11 +47,17 @@ export default {
 }
 
 .author-card__image {
-  width: 100px;
-  height: 100px;
-  margin-right: 20px;
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
   border-radius: 50%;
   overflow: hidden;
+  @include bp($bp-mobile) {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
 }
 
 .author-card__name {

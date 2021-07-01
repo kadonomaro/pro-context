@@ -1,5 +1,5 @@
 <script>
-import { stickyScroll, throttle } from "@/utils";
+import { isMobile, stickyScroll, throttle } from "@/utils";
 import PostList from "@/components/PostList";
 
 export default {
@@ -27,15 +27,17 @@ export default {
   },
   methods: {
     stickyImageScroll() {
-      const el = document.querySelector(".js-scroll-sidebar");
-      const elWrap = document.querySelector(".js-scroll-sidebar-wrapper");
-      if (el && elWrap) {
-        stickyScroll({
-          el,
-          elWrap,
-          topMargin: 90,
-          classNameDivider: "footer",
-        });
+      if (!isMobile()) {
+        const el = document.querySelector(".js-scroll-sidebar");
+        const elWrap = document.querySelector(".js-scroll-sidebar-wrapper");
+        if (el && elWrap) {
+          stickyScroll({
+            el,
+            elWrap,
+            topMargin: 90,
+            classNameDivider: "footer",
+          });
+        }
       }
     },
   },
@@ -56,6 +58,10 @@ export default {
   border-radius: 16px;
   box-shadow: 0 0 25px #e2e2e2;
   box-sizing: border-box;
+  .post-list__card {
+    max-width: 100%;
+    padding: 0 0 16px;
+  }
 }
 
 .post-aside__title {

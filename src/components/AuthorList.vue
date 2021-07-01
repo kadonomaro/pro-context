@@ -22,17 +22,28 @@ export default {
 
 <style lang="scss">
 .author-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -12px;
+  @include bp($bp-mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -8px;
+  }
+  @include bp($bp-desktop-sm) {
+    margin: 0 -12px;
+  }
 }
 
 .author-list__card {
-  @media screen and (min-width: 768px) {
+  padding-bottom: 12px;
+  box-sizing: border-box;
+  @include bp($bp-mobile) {
+    flex-basis: 50%;
+    max-width: 50%;
+    padding: 0 8px 16px;
+  }
+  @include bp($bp-desktop-sm) {
     flex-basis: 33.3333%;
     max-width: 33.3333%;
     padding: 0 12px 24px;
-    box-sizing: border-box;
   }
 }
 </style>

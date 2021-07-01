@@ -98,8 +98,10 @@ export default {
 
 <style lang="scss">
 .post-detail {
-  display: flex;
-  align-items: flex-start;
+  @include bp($bp-desktop-sm) {
+    display: flex;
+    align-items: flex-start;
+  }
 }
 
 .post-detail__main {
@@ -112,10 +114,14 @@ export default {
 }
 
 .post-detail__side {
-  flex-basis: 300px;
-  flex-shrink: 0;
-  max-width: 300px;
-  margin-left: 32px;
+  margin-top: 24px;
+  @include bp($bp-desktop-sm) {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    max-width: 300px;
+    margin-top: 0;
+    margin-left: 32px;
+  }
 }
 
 .post-detail__image {

@@ -67,6 +67,7 @@ export default {
 
 .post-card {
   display: flex;
+  flex-direction: column;
   height: 100%;
   text-decoration: none;
   background-color: #fff;
@@ -74,6 +75,9 @@ export default {
   box-shadow: 0 0 25px #e2e2e2;
   overflow: hidden;
   transition: box-shadow 0.2s ease-in;
+  @include bp($bp-desktop-md) {
+    flex-direction: row;
+  }
   &:hover {
     box-shadow: 0 0 7px #e2e2e2;
     .post-card__image img {
@@ -97,8 +101,11 @@ export default {
 .post-card__image {
   position: relative;
   flex-shrink: 0;
-  width: 200px;
+  width: 100%;
   overflow: hidden;
+  @include bp($bp-desktop-md) {
+    width: 200px;
+  }
   &::before {
     content: "";
     display: block;

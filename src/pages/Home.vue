@@ -59,17 +59,23 @@ export default {
 
 <style lang="scss">
 .home__inner {
-  display: flex;
-  align-items: flex-start;
+  @include bp($bp-desktop-sm) {
+    display: flex;
+    align-items: flex-start;
+  }
 }
 
 .home__main {
-  margin-right: 32px;
+  @include bp($bp-desktop-sm) {
+    margin-right: 32px;
+  }
 }
 
 .home__side {
-  flex-basis: 300px;
-  flex-shrink: 0;
-  max-width: 300px;
+  @include bp($bp-mobile) {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    max-width: 300px;
+  }
 }
 </style>

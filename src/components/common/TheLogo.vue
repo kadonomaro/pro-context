@@ -1,18 +1,12 @@
 <script>
 export default {
   name: "TheLogo",
-  computed: {
-    isHomePage() {
-      return this.$route.name === "Home";
-    },
-  },
 };
 </script>
 
 <template>
   <div class="logo">
-    <img v-if="isHomePage" src="@/assets/logo.svg" alt="WordEd" />
-    <router-link v-else :to="{ name: 'Home' }">
+    <router-link :to="{ name: 'Home' }">
       <img src="@/assets/logo.svg" alt="WordEd" />
     </router-link>
     <span class="logo__text"><span>W</span>ordEd</span>

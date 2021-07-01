@@ -1,3 +1,13 @@
+function isMobile(width = 991) {
+  return (
+    (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    ) &&
+      window.matchMedia(`(max-width: ${width}px)`).matches) ||
+    window.matchMedia(`(max-width: ${width}px)`).matches
+  );
+}
+
 const stickyScroll = ({
   el,
   elWrap,
@@ -53,4 +63,4 @@ const uniqueArray = (value, index, self) => {
   return self.indexOf(value) === index;
 };
 
-export { stickyScroll, throttle, uniqueArray };
+export { stickyScroll, throttle, uniqueArray, isMobile };

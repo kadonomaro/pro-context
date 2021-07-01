@@ -87,18 +87,24 @@ export default {
 
 <style lang="scss">
 .articles__inner {
-  display: flex;
-  align-items: flex-start;
+  @include bp($bp-desktop-sm) {
+    display: flex;
+    align-items: flex-start;
+  }
 }
 
 .articles__main {
-  margin-left: 32px;
+  @include bp($bp-desktop-sm) {
+    margin-left: 32px;
+  }
 }
 
 .articles__side {
-  flex-basis: 300px;
-  flex-shrink: 0;
-  max-width: 300px;
+  @include bp($bp-desktop-sm) {
+    flex-basis: 300px;
+    flex-shrink: 0;
+    max-width: 300px;
+  }
 }
 
 .articles__filter {

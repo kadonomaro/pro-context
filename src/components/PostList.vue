@@ -24,16 +24,18 @@ export default {
 
 <style lang="scss">
 .post-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -12px;
+  @include bp($bp-mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+  }
 }
 
 .post-list--vertical {
   display: block;
   margin: 0;
   .post-list__card {
-    @media screen and (min-width: 768px) {
+    @include bp($bp-desktop-sm) {
       max-width: 100%;
       padding: 0 0 24px;
     }
@@ -41,7 +43,8 @@ export default {
 }
 
 .post-list__card {
-  @media screen and (min-width: 768px) {
+  padding-bottom: 12px;
+  @include bp($bp-mobile) {
     flex-basis: 50%;
     max-width: 50%;
     padding: 0 12px 24px;
