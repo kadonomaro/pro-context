@@ -28,6 +28,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "post-detail" */ "../pages/PostDetail"),
   },
+  {
+    path: "*",
+    name: "Error",
+    component: () =>
+      import(/* webpackChunkName: "Error" */ "../pages/Error.vue"),
+  },
 ];
 
 const router = new VueRouter({
