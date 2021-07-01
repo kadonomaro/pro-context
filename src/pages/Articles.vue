@@ -60,15 +60,31 @@ export default {
 </script>
 <template>
   <div class="articles">
-    <div class="articles__filter">
-      <post-filter :tags="postsTags"></post-filter>
-    </div>
-    <post-list v-if="filteredPosts" :posts="filteredPosts"></post-list>
+    <aside class="articles__side">
+      <div class="articles__filter js-scroll-filter">
+        <post-filter :tags="postsTags"></post-filter>
+      </div>
+    </aside>
+    <main class="articles__main">
+      <post-list v-if="filteredPosts" :posts="filteredPosts"></post-list>
+    </main>
   </div>
 </template>
 
 <style lang="scss">
 .articles {
+  display: flex;
+  align-items: flex-start;
+}
+
+.articles__main {
+  margin-left: 32px;
+}
+
+.articles__side {
+  flex-basis: 300px;
+  flex-shrink: 0;
+  max-width: 300px;
 }
 
 .articles__filter {

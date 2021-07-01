@@ -1,6 +1,6 @@
 <script>
 import { mapActions, mapState } from "vuex";
-//TODO: сброс фильтра
+import { stickyScroll, throttle } from "@/utils";
 
 export default {
   name: "PostFilter",
@@ -13,6 +13,7 @@ export default {
         tag: "all",
         author: "all",
       },
+      stickyScrollWithThrottle: throttle(this.stickyImageScroll, 35),
     };
   },
   computed: {
@@ -20,6 +21,9 @@ export default {
       filterTag: (state) => state.filter.tag,
       filterAuthor: (state) => state.filter.author,
     }),
+    isDisabledClearButton() {
+      return Object.values(this.filter).every((value) => value === "all");
+    },
 
     // temporary data
     authors() {
@@ -29,18 +33,39 @@ export default {
   mounted() {
     this.filter.tag = this.filterTag;
     this.filter.author = this.filterAuthor;
+    window.addEventListener("scroll", this.stickyScrollWithThrottle);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.stickyScrollWithThrottle);
   },
   methods: {
     ...mapActions(["setFilter"]),
     submitHandler() {
       this.setFilter(this.filter);
     },
+    clearFilterHandler() {
+      this.filter.tag = "all";
+      this.filter.author = "all";
+      this.setFilter(this.filter);
+    },
+    stickyImageScroll() {
+      const el = document.querySelector(".js-scroll-filter");
+      const elWrap = document.querySelector(".js-scroll-filter-wrapper");
+      if (el && elWrap) {
+        stickyScroll({
+          el,
+          elWrap,
+          topMargin: 90,
+          classNameDivider: "footer",
+        });
+      }
+    },
   },
 };
 </script>
 
 <template>
-  <div class="post-filter">
+  <div class="post-filter js-scroll-filter-wrapper">
     <form class="post-filter__form" @submit.prevent="submitHandler">
       <label class="post-filter__label">
         <span class="post-filter__name">Тема</span>
@@ -71,7 +96,16 @@ export default {
           </option>
         </select>
       </label>
-      <button class="base-button">Применить</button>
+      <div class="post-filter__controls">
+        <button class="base-button">Применить</button>
+        <button
+          class="base-button"
+          :disabled="isDisabledClearButton"
+          @click.prevent="clearFilterHandler"
+        >
+          Сбросить
+        </button>
+      </div>
     </form>
   </div>
 </template>
@@ -80,14 +114,18 @@ export default {
 @import "~@/assets/css/ui/base-input.scss";
 @import "~@/assets/css/ui/base-button.scss";
 .post-filter {
-  padding: 16px;
+  padding: 8px;
   border-radius: 16px;
-  background-color: #fff;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 25px #e2e2e2;
+  box-sizing: border-box;
 }
 
 .post-filter__form {
-  display: flex;
-  align-items: flex-end;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
 }
 
 .post-filter__name {
@@ -98,6 +136,16 @@ export default {
 }
 
 .post-filter__label {
-  margin-right: 10px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.post-filter__controls {
+  display: flex;
+  margin: 25px -4px 0;
+  button {
+    flex-basis: 50%;
+    margin: 0 4px;
+  }
 }
 </style>
