@@ -2,14 +2,14 @@
 import { mapState } from "vuex";
 import gql from "graphql-tag";
 import { uniqueArray } from "@/utils";
-import PostList from "@/components/PostList";
-import PostFilter from "@/components/PostFilter";
 import { metaInfo } from "@/libs/MetaInfo";
-import SkeletonPostCard from "@/components/SkeletonPostCard";
+import CardList from "@/components/CardList";
+import PostFilter from "@/components/PostFilter";
+import SkeletonCard from "@/components/SkeletonCard";
 
 export default {
   name: "Articles",
-  components: { SkeletonPostCard, PostFilter, PostList },
+  components: { SkeletonCard, PostFilter, CardList },
   computed: {
     ...mapState({
       filterTag: (state) => state.filter.tag,
@@ -84,8 +84,8 @@ export default {
         </div>
       </aside>
       <main class="articles__main">
-        <post-list v-if="filteredPosts" :posts="filteredPosts"></post-list>
-        <skeleton-post-card v-else></skeleton-post-card>
+        <card-list v-if="filteredPosts" :cards="filteredPosts"></card-list>
+        <skeleton-card v-else></skeleton-card>
       </main>
     </div>
   </div>

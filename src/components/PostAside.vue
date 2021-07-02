@@ -1,11 +1,11 @@
 <script>
 import { isMobile, stickyScroll, throttle } from "@/utils";
-import PostList from "@/components/PostList";
+import CardList from "@/components/CardList";
 
 export default {
   name: "PostAside",
   components: {
-    PostList,
+    CardList,
   },
   props: {
     posts: {
@@ -47,7 +47,7 @@ export default {
 <template>
   <div class="post-aside js-scroll-sidebar-wrapper">
     <h2 class="post-aside__title">{{ title }}</h2>
-    <post-list :posts="posts" is-vertical></post-list>
+    <card-list :cards="posts" is-vertical></card-list>
   </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
   border-radius: 16px;
   box-shadow: 0 0 25px #e2e2e2;
   box-sizing: border-box;
-  .post-list__card {
+  .card-list__item {
     max-width: 100%;
     padding: 0 0 16px;
   }

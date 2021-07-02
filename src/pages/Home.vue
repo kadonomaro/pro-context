@@ -1,14 +1,14 @@
 <script>
 import gql from "graphql-tag";
 import { metaInfo } from "@/libs/MetaInfo";
-import PostList from "@/components/PostList";
+import CardList from "@/components/CardList";
 import PostAside from "@/components/PostAside";
 import HomeBanner from "@/components/HomeBanner";
-import SkeletonPostCard from "@/components/SkeletonPostCard";
+import SkeletonCard from "@/components/SkeletonCard";
 
 export default {
   name: "Home",
-  components: { SkeletonPostCard, HomeBanner, PostAside, PostList },
+  components: { SkeletonCard, HomeBanner, PostAside, CardList },
   computed: {
     recommendedPosts() {
       return this.posts?.filter((post) => post.isShowingInAside);
@@ -72,14 +72,14 @@ export default {
     <div class="home__inner">
       <main class="home__main">
         <div class="home__section">
-          <post-list v-if="news" :cards="news"></post-list>
-          <skeleton-post-card v-else></skeleton-post-card>
+          <card-list v-if="news" :cards="news" type="news"></card-list>
+          <skeleton-card v-else :cards-to-show="4"></skeleton-card>
         </div>
 
         <div class="home__section">
           <h2 class="title-main">Популярные статьи</h2>
-          <post-list v-if="posts" :cards="posts"></post-list>
-          <skeleton-post-card v-else></skeleton-post-card>
+          <card-list v-if="posts" :cards="posts"></card-list>
+          <skeleton-card v-else></skeleton-card>
         </div>
       </main>
       <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts">

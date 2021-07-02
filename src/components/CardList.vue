@@ -1,29 +1,34 @@
 <script>
-import PostCard from "@/components/PostCard";
+import CardListItem from "@/components/CardListItem";
 
 export default {
-  name: "PostList",
-  components: { PostCard },
+  name: "CardList",
+  components: { CardListItem },
   props: {
     cards: {
       type: Array,
       required: true,
     },
+    type: String,
     isVertical: Boolean,
   },
 };
 </script>
 
 <template>
-  <div class="post-list" :class="{ 'post-list--vertical': isVertical }">
-    <div class="post-list__card" v-for="card in cards" :key="card.id">
-      <post-card :post="card" :is-vertical="isVertical"></post-card>
+  <div class="card-list" :class="{ 'card-list--vertical': isVertical }">
+    <div class="card-list__item" v-for="card in cards" :key="card.id">
+      <card-list-item
+        :card="card"
+        :type="type"
+        :is-vertical="isVertical"
+      ></card-list-item>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.post-list {
+.card-list {
   @include bp($bp-mobile) {
     display: flex;
     flex-wrap: wrap;
@@ -31,10 +36,10 @@ export default {
   }
 }
 
-.post-list--vertical {
+.card-list--vertical {
   display: block;
   margin: 0;
-  .post-list__card {
+  .card-list__item {
     @include bp($bp-desktop-sm) {
       max-width: 100%;
       padding: 0 0 24px;
@@ -42,7 +47,7 @@ export default {
   }
 }
 
-.post-list__card {
+.card-list__item {
   padding-bottom: 12px;
   @include bp($bp-mobile) {
     flex-basis: 50%;

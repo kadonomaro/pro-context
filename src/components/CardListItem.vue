@@ -1,21 +1,28 @@
 <script>
 export default {
-  name: "PostCard",
+  name: "CardListItem",
   props: {
-    post: {
+    card: {
       type: Object,
       required: true,
+    },
+    type: {
+      type: String,
+      default: "post",
     },
     isVertical: Boolean,
   },
   computed: {
     previewImage() {
-      return this.post.previewImage?.url || "/static/empty-photo.svg";
+      return this.card.previewImage?.url || "/static/empty-photo.svg";
     },
     backgroundImageColor() {
-      return this.post.backgroundImageColor
-        ? this.post.backgroundImageColor?.hex
+      return this.card.backgroundImageColor
+        ? this.card.backgroundImageColor?.hex
         : "linear-gradient(135deg, #f395ba 0%, #fed182 100%)";
+    },
+    routerPathComponent() {
+      return this.type === "post" ? "PostDetail" : "NewsDetail";
     },
   },
 };
@@ -23,35 +30,44 @@ export default {
 
 <template>
   <router-link
-    class="post-card-link"
-    :to="{ name: 'PostDetail', params: { slug: post.slug } }"
+    class="card-list-item-link"
+    :to="{ name: routerPathComponent, params: { slug: card.slug } }"
   >
-    <article class="post-card" :class="{ 'post-card--vertical': isVertical }">
+    <article
+      class="card-list-item"
+      :class="{ 'card-list-item--vertical': isVertical }"
+    >
       <div
-        class="post-card__image"
+        class="card-list-item__image"
         :style="{ background: backgroundImageColor }"
       >
-        <img :src="previewImage" :alt="post.title" />
+        <img :src="previewImage" :alt="card.title" />
       </div>
-      <div class="post-card__content">
-        <div class="post-card__head">
-          <div class="post-card__tags">
-            <div class="post-card__tag" v-for="tag in post.tags" :key="tag">
+      <div class="card-list-item__content">
+        <div class="card-list-item__head">
+          <div class="card-list-item__tags">
+            <div
+              class="card-list-item__tag"
+              v-for="tag in card.tags"
+              :key="tag"
+            >
               {{ tag }}
             </div>
           </div>
-          <div class="post-card__date">{{ post.createdAt | date }}</div>
+          <div class="card-list-item__date">{{ card.createdAt | date }}</div>
         </div>
-        <h2 class="post-card__title">{{ post.title }}</h2>
-        <div class="post-card__text">{{ post.announce }}</div>
-        <footer class="post-card__footer" v-if="post.author">
-          <div class="post-card__author">
+        <h2 class="card-list-item__title">{{ card.title }}</h2>
+        <div class="card-list-item__text">{{ card.announce }}</div>
+        <footer class="card-list-item__footer" v-if="card.author">
+          <div class="card-list-item__author">
             <img
-              :src="post.author.picture.url"
-              :alt="post.author.name"
-              class="post-card__author-image"
+              :src="card.author.picture.url"
+              :alt="card.author.name"
+              class="card-list-item__author-image"
             />
-            <span class="post-card__author-name">{{ post.author.name }}</span>
+            <span class="card-list-item__author-name">{{
+              card.author.name
+            }}</span>
           </div>
         </footer>
       </div>
@@ -60,12 +76,12 @@ export default {
 </template>
 
 <style lang="scss">
-.post-card-link {
+.card-list-item-link {
   text-decoration: none;
   color: inherit;
 }
 
-.post-card {
+.card-list-item {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -80,25 +96,25 @@ export default {
   }
   &:hover {
     box-shadow: 0 0 7px #e2e2e2;
-    .post-card__image img {
+    .card-list-item__image img {
       transform: translate(-50%, -53%);
     }
   }
 }
 
-.post-card--vertical {
+.card-list-item--vertical {
   flex-direction: column;
   background-color: #f9f9f9;
   box-shadow: none;
   &:hover {
     box-shadow: none;
   }
-  .post-card__image {
+  .card-list-item__image {
     width: 100%;
   }
 }
 
-.post-card__image {
+.card-list-item__image {
   position: relative;
   flex-shrink: 0;
   width: 100%;
@@ -121,7 +137,7 @@ export default {
   }
 }
 
-.post-card__content {
+.card-list-item__content {
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -130,7 +146,7 @@ export default {
   }
 }
 
-.post-card__head {
+.card-list-item__head {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -138,11 +154,11 @@ export default {
   color: #6e798c;
 }
 
-.post-card__tags {
+.card-list-item__tags {
   display: flex;
 }
 
-.post-card__tag {
+.card-list-item__tag {
   text-transform: uppercase;
   font-size: 14px;
   &:not(:last-child) {
@@ -150,11 +166,11 @@ export default {
   }
 }
 
-.post-card__date {
+.card-list-item__date {
   font-size: 12px;
 }
 
-.post-card__title {
+.card-list-item__title {
   margin: 0 0 15px;
   font-size: 18px;
   font-weight: 500;
@@ -164,7 +180,7 @@ export default {
   }
 }
 
-.post-card__text {
+.card-list-item__text {
   flex-grow: 1;
   color: #374a59;
   font-size: 14px;
@@ -175,14 +191,14 @@ export default {
   }
 }
 
-.post-card__footer {
+.card-list-item__footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
 
-.post-card__author {
+.card-list-item__author {
   display: flex;
   align-items: center;
   color: $color-link;
@@ -190,7 +206,7 @@ export default {
   font-weight: 500;
 }
 
-.post-card__author-image {
+.card-list-item__author-image {
   width: 35px;
   height: 35px;
   flex-shrink: 0;

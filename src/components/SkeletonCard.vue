@@ -1,14 +1,20 @@
 <script>
 export default {
-  name: "SkeletonPostCard",
+  name: "SkeletonCard",
+  props: {
+    cardsToShow: {
+      type: Number,
+      default: 6,
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="skeleton-post-card">
+  <div class="skeleton-card">
     <div
-      class="skeleton-post-card__item"
-      v-for="(_, index) in 6"
+      class="skeleton-card__item"
+      v-for="(_, index) in cardsToShow"
       :key="index"
     ></div>
   </div>
@@ -18,13 +24,13 @@ export default {
 @mixin background-gradient {
 }
 
-.skeleton-post-card {
+.skeleton-card {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -12px;
 }
 
-.skeleton-post-card__item {
+.skeleton-card__item {
   border-radius: 16px;
   box-sizing: border-box;
 
