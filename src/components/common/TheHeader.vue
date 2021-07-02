@@ -33,7 +33,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  padding: 12px;
+  padding: 12px 0;
   background-color: #f2f2f2;
   box-shadow: 0 0 20px rgba(#000, 0.2);
 }

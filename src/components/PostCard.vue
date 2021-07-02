@@ -185,7 +185,7 @@ export default {
 .post-card__author {
   display: flex;
   align-items: center;
-  color: #007ae9;
+  color: $color-link;
   font-size: 14px;
   font-weight: 500;
 }

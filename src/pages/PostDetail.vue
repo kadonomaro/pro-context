@@ -85,7 +85,7 @@ export default {
   metaInfo() {
     return {
       ...metaInfo.get("post"),
-      title: this.post?.title + " | WordEd",
+      title: this.post?.title + " | ContextHelper",
     };
   },
 };
