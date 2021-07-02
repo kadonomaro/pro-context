@@ -18,8 +18,12 @@ export default {
 
 <style lang="scss">
 .home-banner {
-  border-radius: 16px;
+  margin: 0 -8px;
   overflow: hidden;
+  @include bp($bp-mobile) {
+    margin: 0;
+    border-radius: 16px;
+  }
   img {
     width: 100%;
   }

@@ -4,10 +4,11 @@ import { metaInfo } from "@/libs/MetaInfo";
 import PostList from "@/components/PostList";
 import PostAside from "@/components/PostAside";
 import HomeBanner from "@/components/HomeBanner";
+import SkeletonPostCard from "@/components/SkeletonPostCard";
 
 export default {
   name: "Home",
-  components: { HomeBanner, PostAside, PostList },
+  components: { SkeletonPostCard, HomeBanner, PostAside, PostList },
   computed: {
     recommendedPosts() {
       return this.posts?.filter((post) => post.isShowingInAside);
@@ -54,6 +55,7 @@ export default {
     <div class="home__inner">
       <main class="home__main">
         <post-list v-if="posts" :posts="posts"></post-list>
+        <skeleton-post-card v-else></skeleton-post-card>
       </main>
       <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts">
         <post-aside
@@ -82,6 +84,7 @@ export default {
 
 .home__main {
   @include bp($bp-desktop-sm) {
+    flex-grow: 1;
     margin-right: 32px;
   }
 }

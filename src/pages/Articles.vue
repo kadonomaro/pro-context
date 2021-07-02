@@ -5,10 +5,11 @@ import { uniqueArray } from "@/utils";
 import PostList from "@/components/PostList";
 import PostFilter from "@/components/PostFilter";
 import { metaInfo } from "@/libs/MetaInfo";
+import SkeletonPostCard from "@/components/SkeletonPostCard";
 
 export default {
   name: "Articles",
-  components: { PostFilter, PostList },
+  components: { SkeletonPostCard, PostFilter, PostList },
   computed: {
     ...mapState({
       filterTag: (state) => state.filter.tag,
@@ -84,6 +85,7 @@ export default {
       </aside>
       <main class="articles__main">
         <post-list v-if="filteredPosts" :posts="filteredPosts"></post-list>
+        <skeleton-post-card v-else></skeleton-post-card>
       </main>
     </div>
   </div>
@@ -99,6 +101,7 @@ export default {
 
 .articles__main {
   @include bp($bp-desktop-sm) {
+    flex-grow: 1;
     margin-left: 32px;
   }
 }

@@ -13,9 +13,11 @@ img {
 }
 
 .container {
+    width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 8px;
+    box-sizing: border-box;
     @include bp($bp-mobile) {
         padding: 0 16px;
     }

@@ -112,9 +112,7 @@ export default {
 @import "~@/assets/css/ui/base-input.scss";
 @import "~@/assets/css/ui/base-button.scss";
 .post-filter {
-  padding: 8px;
   border-radius: 16px;
-  background-color: #f9f9f9;
   box-shadow: 0 0 25px #e2e2e2;
   box-sizing: border-box;
 }
@@ -122,9 +120,8 @@ export default {
 .post-filter__form {
   display: flex;
   flex-wrap: wrap;
-  padding: 8px;
+  padding: 16px;
   background-color: #fff;
-  border: 1px solid #e5e5e5;
   border-radius: 12px;
   @include bp($bp-desktop-sm) {
     display: block;
