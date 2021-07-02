@@ -49,7 +49,7 @@ export default {
           id
           slug
           title
-          excerpt
+          announce
           createdAt
           tags
           backgroundImageColor {

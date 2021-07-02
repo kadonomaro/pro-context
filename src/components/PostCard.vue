@@ -43,7 +43,7 @@ export default {
           <div class="post-card__date">{{ post.createdAt | date }}</div>
         </div>
         <h2 class="post-card__title">{{ post.title }}</h2>
-        <div class="post-card__text">{{ post.excerpt }}</div>
+        <div class="post-card__text">{{ post.announce }}</div>
         <footer class="post-card__footer" v-if="post.author">
           <div class="post-card__author">
             <img

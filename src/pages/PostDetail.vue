@@ -27,7 +27,6 @@ export default {
             title
             tags
             createdAt
-            tags
             content {
               html
             }
@@ -56,7 +55,7 @@ export default {
             id
             slug
             title
-            excerpt
+            announce
             createdAt
             tags
             backgroundImageColor {

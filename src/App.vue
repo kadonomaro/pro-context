@@ -21,11 +21,8 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 120px;
+  padding-top: 90px;
   background: #f7f7f7;
   box-sizing: border-box;
-  @include bp($bp-mobile) {
-    padding-top: 90px;
-  }
 }
 </style>

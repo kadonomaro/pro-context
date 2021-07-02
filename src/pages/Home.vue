@@ -21,7 +21,7 @@ export default {
           id
           slug
           title
-          excerpt
+          announce
           createdAt
           tags
           isShowingInAside
@@ -40,6 +40,23 @@ export default {
         }
       }
     `,
+    news: gql`
+      query {
+        news(first: 4) {
+          id
+          slug
+          title
+          announce
+          createdAt
+          backgroundImageColor {
+            hex
+          }
+          previewImage {
+            url
+          }
+        }
+      }
+    `,
   },
   metaInfo() {
     return metaInfo.get("home");
@@ -51,11 +68,19 @@ export default {
     <div class="home__banner">
       <home-banner></home-banner>
     </div>
-    <h1 class="title-main">Популярные статьи</h1>
+    <h2 class="title-main">Новости</h2>
     <div class="home__inner">
       <main class="home__main">
-        <post-list v-if="posts" :posts="posts"></post-list>
-        <skeleton-post-card v-else></skeleton-post-card>
+        <div class="home__section">
+          <post-list v-if="news" :cards="news"></post-list>
+          <skeleton-post-card v-else></skeleton-post-card>
+        </div>
+
+        <div class="home__section">
+          <h2 class="title-main">Популярные статьи</h2>
+          <post-list v-if="posts" :cards="posts"></post-list>
+          <skeleton-post-card v-else></skeleton-post-card>
+        </div>
       </main>
       <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts">
         <post-aside
@@ -76,6 +101,13 @@ export default {
 }
 
 .home__banner {
+  margin-bottom: 20px;
+  @include bp($bp-desktop-sm) {
+    margin-bottom: 40px;
+  }
+}
+
+.home__section {
   margin-bottom: 20px;
   @include bp($bp-desktop-sm) {
     margin-bottom: 40px;

@@ -5,7 +5,7 @@ export default {
   name: "PostList",
   components: { PostCard },
   props: {
-    posts: {
+    cards: {
       type: Array,
       required: true,
     },
@@ -16,8 +16,8 @@ export default {
 
 <template>
   <div class="post-list" :class="{ 'post-list--vertical': isVertical }">
-    <div class="post-list__card" v-for="post in posts" :key="post.id">
-      <post-card :post="post" :is-vertical="isVertical"></post-card>
+    <div class="post-list__card" v-for="card in cards" :key="card.id">
+      <post-card :post="card" :is-vertical="isVertical"></post-card>
     </div>
   </div>
 </template>
