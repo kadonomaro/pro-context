@@ -125,15 +125,22 @@ export default {
   &::before {
     content: "";
     display: block;
-    padding-bottom: 100%;
+    padding-bottom: 50%;
+    @include bp($bp-desktop-sm) {
+      padding-bottom: 100%;
+    }
   }
   img {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 75%;
+    height: 75%;
     transform: translate(-50%, -50%);
     transition: transform 0.2s ease-in;
+    @include bp($bp-desktop-sm) {
+      width: 75%;
+      height: auto;
+    }
   }
 }
 
