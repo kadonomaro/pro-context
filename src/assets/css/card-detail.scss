@@ -5,6 +5,15 @@
     }
 }
 
+.card-detail__main {
+    border-radius: 16px;
+    overflow: hidden;
+    &:only-child {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
+
 .card-detail__image {
     img {
         width: 100%;

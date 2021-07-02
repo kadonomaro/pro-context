@@ -8,6 +8,11 @@ export default {
   <nav class="navigation">
     <ul class="navigation__list">
       <li class="navigation__item">
+        <router-link class="navigation__link" :to="{ name: 'News' }">
+          Новости
+        </router-link>
+      </li>
+      <li class="navigation__item">
         <router-link class="navigation__link" :to="{ name: 'Articles' }">
           Все статьи
         </router-link>
@@ -22,9 +27,6 @@ export default {
 </template>
 
 <style lang="scss">
-.navigation {
-}
-
 .navigation__list {
   display: flex;
   justify-content: center;
@@ -39,7 +41,7 @@ export default {
 
 .navigation__link {
   display: block;
-  padding: 8px 10px;
+  padding: 8px;
   color: inherit;
   font-size: 16px;
   font-weight: 500;
@@ -50,6 +52,9 @@ export default {
   }
   &:hover {
     color: $color-link;
+  }
+  @include bp($bp-mobile) {
+    padding: 8px 10px;
   }
 }
 </style>

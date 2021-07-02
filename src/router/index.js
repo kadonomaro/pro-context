@@ -29,6 +29,12 @@ const routes = [
       import(/* webpackChunkName: "post-detail" */ "../pages/PostDetail"),
   },
   {
+    path: "/news/:slug",
+    name: "NewsDetail",
+    component: () =>
+      import(/* webpackChunkName: "news-detail" */ "../pages/NewsDetail"),
+  },
+  {
     path: "*",
     name: "Error",
     component: () =>

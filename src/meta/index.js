@@ -1,16 +1,24 @@
 const description =
-  "Авторские статьи о контекстной рекламе, нюансах продвижения и о том, как работать с маленьким бюджетом - ContextHelper";
+  "Новости и авторские статьи о контекстной рекламе, нюансах продвижения и о том, как работать с маленьким бюджетом - ContextHelper";
 
 export const meta = {
   home: {
-    title: "Авторские статьи о контекстной рекламе | ContextHelper",
+    title: "Новости и авторские статьи о контекстной рекламе | ContextHelper",
     description,
   },
   post: {
     description,
   },
+  newsItem: {
+    description,
+  },
   articles: {
     title: "Полный список статей о контекстной рекламе | ContextHelper",
+    description,
+  },
+  news: {
+    title:
+      "Самые свежие и интересные новости о контекстной рекламе | ContextHelper",
     description,
   },
   authors: {

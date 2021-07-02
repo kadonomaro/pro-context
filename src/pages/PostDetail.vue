@@ -127,15 +127,6 @@ export default {
 
 <style lang="scss">
 @import "~@/assets/css/card-detail.scss";
-.card-detail__main {
-  border-radius: 16px;
-  overflow: hidden;
-  &:only-child {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-}
-
 .card-detail__side {
   margin-top: 24px;
   @include bp($bp-desktop-sm) {
