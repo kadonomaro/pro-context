@@ -7,7 +7,7 @@ export default {
 <template>
   <div class="logo">
     <router-link :to="{ name: 'Home' }">
-      <img src="@/assets/images/logo.svg" alt="ContextHelper" />
+      <img src="@/assets/images/logo.png" alt="ContextHelper" />
     </router-link>
     <span class="logo__text"><span>C</span>ontext<span>H</span>elper</span>
   </div>
@@ -18,9 +18,9 @@ export default {
   display: flex;
   align-items: center;
   img {
-    width: 40px;
+    width: 45px;
     @include bp($bp-mobile) {
-      width: 50px;
+      width: 55px;
     }
   }
   a {
@@ -30,16 +30,17 @@ export default {
 
 .logo__text {
   display: block;
-  margin-left: -12px;
-  color: #a2a2a2;
+  margin-left: -30px;
+  color: #505050;
   font-size: 16px;
   font-weight: 600;
   pointer-events: none;
   span {
-    color: $color-link;
-    font-size: 16px;
+    color: #fff;
+    font-size: 20px;
+    -webkit-text-stroke: 1px #505050;
     @include bp($bp-mobile) {
-      font-size: 20px;
+      font-size: 28px;
     }
   }
 }

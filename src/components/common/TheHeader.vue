@@ -35,6 +35,7 @@ export default {
   right: 0;
   padding: 12px 0 6px;
   background-color: #f2f2f2;
+  border-bottom: 1px solid #d8d8d8;
   box-shadow: 0 0 20px rgba(#000, 0.2);
   @include bp($bp-mobile) {
     padding-bottom: 12px;
