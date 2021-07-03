@@ -18,9 +18,9 @@ export default {
   display: flex;
   align-items: center;
   img {
-    width: 30px;
+    width: 40px;
     @include bp($bp-mobile) {
-      width: 45px;
+      width: 50px;
     }
   }
   a {

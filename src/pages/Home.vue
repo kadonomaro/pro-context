@@ -93,6 +93,12 @@ export default {
 </template>
 
 <style lang="scss">
+.home {
+  @include bp($bp-mobile) {
+    padding-top: 30px;
+  }
+}
+
 .home__inner {
   @include bp($bp-desktop-sm) {
     display: flex;

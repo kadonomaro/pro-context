@@ -1,4 +1,8 @@
 .card-detail {
+    padding-top: 20px;
+    @include bp($bp-mobile) {
+        padding-top: 0;
+    }
     @include bp($bp-desktop-sm) {
         display: flex;
         align-items: flex-start;

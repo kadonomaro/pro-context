@@ -36,6 +36,13 @@ export default {
 </template>
 
 <style lang="scss">
+.about {
+  padding-top: 20px;
+  @include bp($bp-mobile) {
+    padding-top: 0;
+  }
+}
+
 .about__authors {
   margin-bottom: 25px;
 }

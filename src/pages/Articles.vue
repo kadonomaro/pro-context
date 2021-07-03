@@ -92,6 +92,12 @@ export default {
 </template>
 
 <style lang="scss">
+.articles {
+  padding-top: 20px;
+  @include bp($bp-mobile) {
+    padding-top: 0;
+  }
+}
 .articles__inner {
   @include bp($bp-desktop-sm) {
     display: flex;

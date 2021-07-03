@@ -46,12 +46,13 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  @include bp($bp-mobile) {
-  }
 }
 
 .header__logo {
-  margin-right: 40px;
+  margin-right: 10px;
+  @include bp($bp-mobile) {
+    margin-right: 40px;
+  }
 }
 
 .header__nav {

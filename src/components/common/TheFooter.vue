@@ -19,6 +19,7 @@ export default {
       </div>
       <nav class="footer__nav">
         <router-link :to="{ name: 'Home' }">Главная</router-link>
+        <router-link :to="{ name: 'News' }">Новости</router-link>
         <router-link :to="{ name: 'Articles' }">Все статьи</router-link>
         <router-link :to="{ name: 'Authors' }">Авторы</router-link>
       </nav>
@@ -53,9 +54,9 @@ export default {
 
 .footer__nav {
   display: flex;
-  margin: 0 -6px 10px;
+  margin: 0 -4px 10px;
   a {
-    margin: 0 6px;
+    margin: 0 4px;
     color: #fff;
     font-size: 14px;
     text-decoration: none;

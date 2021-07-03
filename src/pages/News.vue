@@ -44,4 +44,11 @@ export default {
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.news {
+  padding-top: 20px;
+  @include bp($bp-mobile) {
+    padding-top: 0;
+  }
+}
+</style>
