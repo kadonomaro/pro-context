@@ -30,7 +30,7 @@ export default {
   metaInfo() {
     return {
       ...metaInfo.get("newsItem"),
-      title: this.newsItem?.title + " | ContextHelper",
+      title: this.newsItem?.title + " | Pro Context",
     };
   },
 };

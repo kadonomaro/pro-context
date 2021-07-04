@@ -84,7 +84,7 @@ export default {
   metaInfo() {
     return {
       ...metaInfo.get("post"),
-      title: this.post?.title + " | ContextHelper",
+      title: this.post?.title + " | Pro Context",
     };
   },
 };
