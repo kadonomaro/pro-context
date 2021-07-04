@@ -59,20 +59,20 @@ export default {
 
 <style lang="scss">
 .home-promo {
-  display: flex;
-  flex-wrap: wrap;
-
-  @include bp($bp-desktop-sm) {
+  @include bp($bp-mobile) {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
 .home-promo__item {
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 8px 0;
   box-sizing: border-box;
   @include bp($bp-mobile) {
     display: block;
+    padding: 8px;
     flex-basis: 25%;
     max-width: 25%;
     text-align: center;
@@ -83,7 +83,7 @@ export default {
   flex-shrink: 0;
   flex-basis: 80px;
   max-width: 200px;
-  margin-right: 10px;
+  margin-right: 4px;
   @include bp($bp-mobile) {
     margin: 0 auto 4px;
   }
