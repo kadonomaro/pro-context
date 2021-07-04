@@ -5,10 +5,11 @@ import CardList from "@/components/CardList";
 import PostAside from "@/components/PostAside";
 import HomeBanner from "@/components/HomeBanner";
 import SkeletonCard from "@/components/SkeletonCard";
+import HomePromo from "@/components/HomePromo";
 
 export default {
   name: "Home",
-  components: { SkeletonCard, HomeBanner, PostAside, CardList },
+  components: { HomePromo, SkeletonCard, HomeBanner, PostAside, CardList },
   computed: {
     recommendedPosts() {
       return this.posts?.filter((post) => post.isShowingInAside);
@@ -68,6 +69,9 @@ export default {
     <div class="home__banner">
       <home-banner></home-banner>
     </div>
+    <div class="home__promo">
+      <home-promo></home-promo>
+    </div>
     <h2 class="title-main">Новости</h2>
     <div class="home__inner">
       <main class="home__main">
@@ -106,7 +110,8 @@ export default {
   }
 }
 
-.home__banner {
+.home__banner,
+.home__promo {
   margin-bottom: 20px;
   @include bp($bp-desktop-sm) {
     margin-bottom: 40px;

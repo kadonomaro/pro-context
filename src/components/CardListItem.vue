@@ -56,7 +56,7 @@ export default {
           </div>
           <div class="card-list-item__date">{{ card.createdAt | date }}</div>
         </div>
-        <h2 class="card-list-item__title">{{ card.title }}</h2>
+        <h3 class="card-list-item__title">{{ card.title }}</h3>
         <div class="card-list-item__text">{{ card.announce }}</div>
         <footer class="card-list-item__footer" v-if="card.author">
           <div class="card-list-item__author">

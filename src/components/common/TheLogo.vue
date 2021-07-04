@@ -33,7 +33,7 @@ export default {
   margin-left: -30px;
   color: #505050;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   pointer-events: none;
   span {
     color: #fff;
