@@ -18,7 +18,7 @@ export default {
   apollo: {
     posts: gql`
       query {
-        posts(first: 6) {
+        posts(first: 8) {
           id
           slug
           title
@@ -86,7 +86,10 @@ export default {
           <skeleton-card v-else></skeleton-card>
         </div>
       </main>
-      <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts">
+      <aside
+        class="home__side js-scroll-sidebar"
+        v-if="recommendedPosts.length"
+      >
         <post-aside
           :posts="recommendedPosts"
           title="Рекомендуем для чтения"
@@ -128,7 +131,6 @@ export default {
 .home__main {
   @include bp($bp-desktop-sm) {
     flex-grow: 1;
-    margin-right: 32px;
   }
 }
 
@@ -137,6 +139,7 @@ export default {
     flex-basis: 300px;
     flex-shrink: 0;
     max-width: 300px;
+    margin-left: 32px;
   }
 }
 </style>
