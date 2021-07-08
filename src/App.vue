@@ -22,7 +22,6 @@ export default {
   flex-direction: column;
   min-height: 100vh;
   padding-top: 90px;
-  background: #f7f7f7;
   box-sizing: border-box;
 }
 </style>

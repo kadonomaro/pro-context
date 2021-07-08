@@ -56,7 +56,7 @@ export default {
   padding: 16px 16px 0;
   background-color: #fff;
   border-radius: 16px;
-  box-shadow: 0 0 25px #e2e2e2;
+  box-shadow: 0 0 25px $color-shadow;
   box-sizing: border-box;
   .card-list__item {
     max-width: 100%;

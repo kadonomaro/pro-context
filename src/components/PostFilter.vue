@@ -113,7 +113,7 @@ export default {
 @import "~@/assets/css/ui/base-button.scss";
 .post-filter {
   border-radius: 16px;
-  box-shadow: 0 0 25px #e2e2e2;
+  box-shadow: 0 0 25px $color-shadow;
   box-sizing: border-box;
 }
 

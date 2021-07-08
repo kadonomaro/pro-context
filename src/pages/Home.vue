@@ -86,15 +86,17 @@ export default {
           <skeleton-card v-else></skeleton-card>
         </div>
       </main>
-      <aside
-        class="home__side js-scroll-sidebar"
-        v-if="recommendedPosts.length"
-      >
-        <post-aside
-          :posts="recommendedPosts"
-          title="Рекомендуем для чтения"
-        ></post-aside>
-      </aside>
+      <template v-if="recommendedPosts">
+        <aside
+          class="home__side js-scroll-sidebar"
+          v-if="recommendedPosts.length"
+        >
+          <post-aside
+            :posts="recommendedPosts"
+            title="Рекомендуем для чтения"
+          ></post-aside>
+        </aside>
+      </template>
     </div>
   </div>
 </template>

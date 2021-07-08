@@ -41,9 +41,16 @@ export default {
   display: flex;
   align-items: center;
   padding: 16px;
-  border-radius: 16px;
   background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 25px $color-shadow;
   cursor: pointer;
+  transition: box-shadow 0.2s ease-in;
+  @include bp($bp-desktop-sm) {
+    &:hover {
+      box-shadow: 0 0 7px $color-shadow;
+    }
+  }
 }
 
 .author-card__image {

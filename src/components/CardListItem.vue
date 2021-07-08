@@ -88,16 +88,16 @@ export default {
   text-decoration: none;
   background-color: #fff;
   border-radius: 16px;
-  box-shadow: 0 0 25px #e2e2e2;
+  box-shadow: 0 0 25px $color-shadow;
   overflow: hidden;
   transition: box-shadow 0.2s ease-in;
   @include bp($bp-desktop-md) {
     flex-direction: row;
-  }
-  &:hover {
-    box-shadow: 0 0 7px #e2e2e2;
-    .card-list-item__image img {
-      transform: translate(-50%, -53%);
+    &:hover {
+      box-shadow: 0 0 7px #f1f1f1;
+      .card-list-item__image img {
+        transform: translate(-50%, -50%) scale(1.03);
+      }
     }
   }
 }
@@ -110,14 +110,16 @@ export default {
     box-shadow: none;
   }
   .card-list-item__image {
-    width: 100%;
+    width: calc(100% - 12px);
   }
 }
 
 .card-list-item__image {
   position: relative;
   flex-shrink: 0;
-  width: 100%;
+  width: calc(100% - 12px);
+  margin: 6px;
+  border-radius: 12px;
   overflow: hidden;
   @include bp($bp-desktop-md) {
     width: 200px;
