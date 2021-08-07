@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import VueMeta from "vue-meta";
 import "@/assets/css/style.scss";
+import "swiper/swiper-bundle.css";
 import { dateFilter } from "@/filters";
 import { createProvider } from "./vue-apollo";
 import { metaInfo } from "@/libs/MetaInfo";

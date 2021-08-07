@@ -65,6 +65,7 @@
 
 <style lang="scss">
     .card-list-item-link {
+        display: block;
         text-decoration: none;
         color: inherit;
     }
