@@ -1,60 +1,60 @@
 <script>
-export default {
-  name: "TheNavigation",
-};
+    export default {
+        name: "TheNavigation",
+    };
 </script>
 
 <template>
-  <nav class="navigation">
-    <ul class="navigation__list">
-      <li class="navigation__item">
-        <router-link class="navigation__link" :to="{ name: 'News' }">
-          Новости
-        </router-link>
-      </li>
-      <li class="navigation__item">
-        <router-link class="navigation__link" :to="{ name: 'Articles' }">
-          Все статьи
-        </router-link>
-      </li>
-      <li class="navigation__item">
-        <router-link class="navigation__link" :to="{ name: 'Authors' }">
-          Авторы
-        </router-link>
-      </li>
-    </ul>
-  </nav>
+    <nav class="navigation">
+        <ul class="navigation__list">
+            <li class="navigation__item">
+                <router-link class="navigation__link" :to="{ name: 'News' }">
+                    Новости
+                </router-link>
+            </li>
+            <li class="navigation__item">
+                <router-link class="navigation__link" :to="{ name: 'Articles' }">
+                    Все статьи
+                </router-link>
+            </li>
+            <li class="navigation__item">
+                <router-link class="navigation__link" :to="{ name: 'Authors' }">
+                    Авторы
+                </router-link>
+            </li>
+        </ul>
+    </nav>
 </template>
 
 <style lang="scss">
-.navigation__list {
-  display: flex;
-  justify-content: center;
-  margin: 0 -6px;
-  padding: 0;
-  list-style: none;
-}
+    .navigation__list {
+        display: flex;
+        justify-content: center;
+        margin: 0 -6px;
+        padding: 0;
+        list-style: none;
+    }
 
-.navigation__item {
-  margin: 0 6px;
-}
+    .navigation__item {
+        margin: 0 6px;
+    }
 
-.navigation__link {
-  display: block;
-  padding: 8px;
-  color: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s ease-in;
-  &.router-link-exact-active {
-    color: $color-link;
-  }
-  &:hover {
-    color: $color-link;
-  }
-  @include bp($bp-mobile) {
-    padding: 8px 10px;
-  }
-}
+    .navigation__link {
+        display: block;
+        padding: 8px;
+        color: inherit;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.2s ease-in;
+        &.router-link-exact-active {
+            color: $color-link;
+        }
+        &:hover {
+            color: $color-link;
+        }
+        @include bp($bp-mobile) {
+            padding: 8px 10px;
+        }
+    }
 </style>

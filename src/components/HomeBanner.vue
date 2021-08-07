@@ -1,31 +1,35 @@
 <script>
-export default {
-  name: "HomeBanner",
-};
+    export default {
+        name: "HomeBanner",
+    };
 </script>
 
-<template>
-  <div class="home-banner">
-    <picture>
-      <source
-        media="(max-width: 600px)"
-        srcset="@/assets/images/banner--mobile.png"
-      />
-      <img src="@/assets/images/banner.png" alt="" />
-    </picture>
-  </div>
+<template functional>
+    <div class="home-banner">
+        <picture>
+            <source media="(max-width: 600px)" srcset="@/assets/images/banner--mobile.png" />
+            <img src="@/assets/images/banner.png" alt="" />
+        </picture>
+    </div>
 </template>
 
 <style lang="scss">
-.home-banner {
-  margin: 0 -8px;
-  overflow: hidden;
-  @include bp($bp-mobile) {
-    margin: 0;
-    border-radius: 16px;
-  }
-  img {
-    width: 100%;
-  }
-}
+    .home-banner {
+        position: relative;
+        margin: 0 -8px;
+        padding-bottom: 75%;
+        overflow: hidden;
+        img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        @include bp($bp-mobile) {
+            margin: 0;
+            padding-bottom: 21%;
+            border-radius: 16px;
+        }
+    }
 </style>

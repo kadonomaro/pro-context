@@ -17,8 +17,8 @@ metaInfo.set(meta);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  apolloProvider: createProvider(),
-  render: (h) => h(App),
+    router,
+    store,
+    apolloProvider: createProvider(),
+    render: (h) => h(App),
 }).$mount("#app");
