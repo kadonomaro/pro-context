@@ -104,7 +104,9 @@
         position: relative;
         .swiper-pagination {
             width: 100%;
-            height: 2px;
+            height: 3px;
+            border-radius: 3px;
+            overflow: hidden;
         }
         .swiper-slide {
             height: auto;

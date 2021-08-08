@@ -6,10 +6,11 @@
     import CardList from "@/components/CardList";
     import PostFilter from "@/components/PostFilter";
     import SkeletonCard from "@/components/SkeletonCard";
+    import CardListEmpty from "@/components/CardListEmpty";
 
     export default {
         name: "Articles",
-        components: { SkeletonCard, PostFilter, CardList },
+        components: { CardListEmpty, SkeletonCard, PostFilter, CardList },
         computed: {
             ...mapState({
                 filterTag: (state) => state.filter.tag,
@@ -23,16 +24,18 @@
             },
             filteredPosts() {
                 return this.posts
-                    ?.filter((post) => {
-                        return this.filterTag === "all"
-                            ? post
-                            : post.tags.includes(this.filterTag);
-                    })
-                    .filter((post) => {
-                        return this.filterAuthor === "all"
-                            ? post
-                            : post.author?.name === this.filterAuthor;
-                    });
+                    ? this.posts
+                          .filter((post) => {
+                              return this.filterTag === "all"
+                                  ? post
+                                  : post.tags.includes(this.filterTag);
+                          })
+                          .filter((post) => {
+                              return this.filterAuthor === "all"
+                                  ? post
+                                  : post.author?.name === this.filterAuthor;
+                          })
+                    : [];
             },
         },
         apollo: {
@@ -84,8 +87,11 @@
                 </div>
             </aside>
             <main class="articles__main">
-                <card-list v-if="filteredPosts" :cards="filteredPosts"></card-list>
-                <skeleton-card v-else></skeleton-card>
+                <skeleton-card v-if="$apollo.queries.posts.loading"></skeleton-card>
+                <card-list v-if="filteredPosts.length" :cards="filteredPosts"></card-list>
+                <card-list-empty
+                    v-if="!$apollo.queries.posts.loading && !filteredPosts.length"
+                ></card-list-empty>
             </main>
         </div>
     </div>

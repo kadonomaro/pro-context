@@ -31,7 +31,6 @@
 <template>
     <router-link
         class="card-list-item-link"
-        :class="{ 'card-list-item-link--vertical': isVertical }"
         :to="{ name: routerPathComponent, params: { slug: card.slug } }"
     >
         <article class="card-list-item" :class="{ 'card-list-item--vertical': isVertical }">
@@ -67,12 +66,12 @@
 <style lang="scss">
     .card-list-item-link {
         display: block;
-        text-decoration: none;
+        height: 100%;
         color: inherit;
+        text-decoration: none;
     }
 
     .card-list-item-link--vertical {
-        height: 100%;
     }
 
     .card-list-item {
@@ -105,6 +104,15 @@
         }
         .card-list-item__image {
             width: calc(100% - 12px);
+            img {
+                width: 60%;
+            }
+            &::before {
+                padding-bottom: 75%;
+            }
+        }
+        .card-list-item__content {
+            padding: 10px 16px 16px 16px;
         }
     }
 
@@ -144,9 +152,9 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        padding: 16px;
-        @include bp($bp-mobile) {
-            padding: 24px;
+        padding: 10px 16px 16px 16px;
+        @include bp($bp-desktop-md) {
+            padding: 16px 16px 16px 10px;
         }
     }
 
@@ -179,9 +187,6 @@
         font-size: 18px;
         font-weight: 500;
         line-height: 24px;
-        @include bp($bp-mobile) {
-            font-size: 20px;
-        }
     }
 
     .card-list-item__text {
