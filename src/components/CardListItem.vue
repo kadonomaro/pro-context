@@ -31,6 +31,7 @@
 <template>
     <router-link
         class="card-list-item-link"
+        :class="{ 'card-list-item-link--vertical': isVertical }"
         :to="{ name: routerPathComponent, params: { slug: card.slug } }"
     >
         <article class="card-list-item" :class="{ 'card-list-item--vertical': isVertical }">
@@ -68,6 +69,10 @@
         display: block;
         text-decoration: none;
         color: inherit;
+    }
+
+    .card-list-item-link--vertical {
+        height: 100%;
     }
 
     .card-list-item {
@@ -138,6 +143,7 @@
     .card-list-item__content {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
         padding: 16px;
         @include bp($bp-mobile) {
             padding: 24px;
