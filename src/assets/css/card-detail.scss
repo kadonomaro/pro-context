@@ -17,9 +17,20 @@
 }
 
 .card-detail__image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
     img {
         width: 100%;
-        border-radius: 16px;
     }
 }
 
@@ -55,10 +66,19 @@
 }
 
 .card-detail__title {
-    margin: 0 0 20px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    display: inline-block;
+    margin: 0;
+    color: #fff;
     font-size: 20px;
     text-align: center;
+    transform: translateY(-50%);
     @include bp($bp-desktop-sm) {
+        left: 30px;
+        right: auto;
         font-size: 30px;
     }
 }
@@ -77,7 +97,7 @@
     }
     h2,
     h3 {
-        margin: 15px 0;
+        margin: 0 0 15px;
     }
     p {
         margin: 10px 0;

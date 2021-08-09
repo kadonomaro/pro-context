@@ -93,9 +93,9 @@
         <main class="card-detail__main">
             <div class="card-detail__image">
                 <img v-if="post.coverImage" :src="post.coverImage.url" :alt="post.title" />
+                <h1 class="card-detail__title">{{ post.title }}</h1>
             </div>
             <div class="card-detail__content">
-                <h1 class="card-detail__title">{{ post.title }}</h1>
                 <div class="card-detail__text" v-html="post.content.html"></div>
                 <footer class="card-detail__footer">
                     <div class="card-detail__tags">

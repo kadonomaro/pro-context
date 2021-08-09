@@ -45,9 +45,9 @@
                     :src="newsItem.coverImage.url"
                     :alt="newsItem.title"
                 />
+                <h1 class="card-detail__title">{{ newsItem.title }}</h1>
             </div>
             <div class="card-detail__content">
-                <h1 class="card-detail__title">{{ newsItem.title }}</h1>
                 <div class="card-detail__text" v-html="newsItem.content.html"></div>
                 <footer class="card-detail__footer">
                     <div class="card-detail__date">{{ newsItem.createdAt | date }}</div>

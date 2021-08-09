@@ -44,7 +44,6 @@
                             {{ tag }}
                         </div>
                     </div>
-                    <div class="card-list-item__date">{{ card.createdAt | date }}</div>
                 </div>
                 <h3 class="card-list-item__title">{{ card.title }}</h3>
                 <div class="card-list-item__text">{{ card.announce }}</div>
@@ -57,6 +56,7 @@
                         />
                         <span class="card-list-item__author-name">{{ card.author.name }}</span>
                     </div>
+                    <div class="card-list-item__date">{{ card.createdAt | date }}</div>
                 </footer>
             </div>
         </article>
@@ -69,9 +69,6 @@
         height: 100%;
         color: inherit;
         text-decoration: none;
-    }
-
-    .card-list-item-link--vertical {
     }
 
     .card-list-item {
@@ -159,20 +156,18 @@
     }
 
     .card-list-item__head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-bottom: 10px;
         color: #6e798c;
     }
 
     .card-list-item__tags {
         display: flex;
+        flex-wrap: wrap;
     }
 
     .card-list-item__tag {
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: 12px;
         &:not(:last-child) {
             margin-right: 5px;
         }
@@ -180,6 +175,7 @@
 
     .card-list-item__date {
         font-size: 12px;
+        white-space: nowrap;
     }
 
     .card-list-item__title {
@@ -210,6 +206,7 @@
     .card-list-item__author {
         display: flex;
         align-items: center;
+        margin-right: 5px;
         color: $color-link;
         font-size: 14px;
         font-weight: 500;
@@ -219,7 +216,7 @@
         width: 35px;
         height: 35px;
         flex-shrink: 0;
-        margin-right: 10px;
+        margin-right: 5px;
         border-radius: 50%;
         overflow: hidden;
     }
