@@ -75,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            <div class="post-aside__slider-pagination">
+            <div v-if="posts.length > 1" class="post-aside__slider-pagination">
                 <div class="swiper-pagination"></div>
             </div>
         </div>
