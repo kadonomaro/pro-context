@@ -1,56 +1,45 @@
 <script>
     export default {
         name: "HomePromo",
+        list() {
+            return [
+                {
+                    title: "Мозговой штурм",
+                    desc: "Оперативный подход при старте новой поисковой кампании или улучшении старой",
+                    icon: "brainstorming",
+                },
+                {
+                    title: "Стоимость заявки",
+                    desc: "Поможем оптимизировать поисковую кампанию для установления оптимальной стоимости заявки",
+                    icon: "project-costing",
+                },
+                {
+                    title: "Верное направление",
+                    desc: "Выберем верное направление при продвижении кампании. Подберем релевантные ключи",
+                    icon: "roadmapping",
+                },
+                {
+                    title: "Долгосрочное планирование",
+                    desc: "Расскажем как в долгосрочной перспективе вести кампанию. Какие существуют возможные риски",
+                    icon: "sprint-planning",
+                },
+            ];
+        },
     };
 </script>
 
-<template>
+<template functional>
     <div class="home-promo">
-        <div class="home-promo__item">
+        <div class="home-promo__item" v-for="(item, index) in $options.list()" :key="index">
             <div class="home-promo__image">
-                <img src="@/assets/images/promo/brainstorming.svg" alt="" />
+                <img
+                    :src="require(`@/assets/images/promo/${item.icon}.svg`)"
+                    :alt="item.title"
+                />
             </div>
             <div class="home-promo__content">
-                <h3 class="home-promo__title">Мозговой штурм</h3>
-                <div class="home-promo__text">
-                    Оперативный подход при старте новой поисковой кампании или улучшении старой
-                </div>
-            </div>
-        </div>
-        <div class="home-promo__item">
-            <div class="home-promo__image">
-                <img src="@/assets/images/promo/project-costing.svg" alt="" />
-            </div>
-            <div class="home-promo__content">
-                <h3 class="home-promo__title">Стоимость заявки</h3>
-                <div class="home-promo__text">
-                    Поможем оптимизировать поисковую кампанию для установления оптимальной
-                    стоимости заявки
-                </div>
-            </div>
-        </div>
-        <div class="home-promo__item">
-            <div class="home-promo__image">
-                <img src="@/assets/images/promo/roadmapping.svg" alt="" />
-            </div>
-            <div class="home-promo__content">
-                <h3 class="home-promo__title">Верное направление</h3>
-                <div class="home-promo__text">
-                    Выберем верное направление при продвижении кампании. Подберем релевантные
-                    ключи
-                </div>
-            </div>
-        </div>
-        <div class="home-promo__item">
-            <div class="home-promo__image">
-                <img src="@/assets/images/promo/sprint-planning.svg" alt="" />
-            </div>
-            <div class="home-promo__content">
-                <h3 class="home-promo__title">Долгосрочное планирование</h3>
-                <div class="home-promo__text">
-                    Расскажем как в долгосрочной перспективе вести кампанию. Какие существуют
-                    возможные риски
-                </div>
+                <h3 class="home-promo__title">{{ item.title }}</h3>
+                <div class="home-promo__text">{{ item.desc }}</div>
             </div>
         </div>
     </div>
