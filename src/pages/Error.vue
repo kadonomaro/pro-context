@@ -19,7 +19,7 @@
         <div class="error__image" :class="{ loaded: isLoaded }">
             <span>4</span>
             <router-link :to="{ name: 'Home' }">
-                <img src="@/assets/images/search.svg" alt="" />
+                <img src="/static/search.svg" alt="" />
             </router-link>
             <span>4</span>
         </div>

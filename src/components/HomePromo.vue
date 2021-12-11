@@ -32,10 +32,7 @@
     <div class="home-promo">
         <div class="home-promo__item" v-for="(item, index) in $options.list()" :key="index">
             <div class="home-promo__image">
-                <img
-                    :src="require(`@/assets/images/promo/${item.icon}.svg`)"
-                    :alt="item.title"
-                />
+                <img :src="`/static/promo/${item.icon}.svg`" :alt="item.title" />
             </div>
             <div class="home-promo__content">
                 <h3 class="home-promo__title">{{ item.title }}</h3>

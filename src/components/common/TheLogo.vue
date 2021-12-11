@@ -4,10 +4,10 @@
     };
 </script>
 
-<template>
+<template functional>
     <div class="logo">
         <router-link :to="{ name: 'Home' }">
-            <img src="@/assets/images/logo.png" alt="Pro Context" />
+            <img src="/static/logo.png" alt="Pro Context" />
         </router-link>
         <span class="logo__text">ProContext</span>
     </div>

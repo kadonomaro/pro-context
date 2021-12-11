@@ -1,54 +1,45 @@
 <script>
     export default {
         name: "TheSocialLinks",
+        links() {
+            return [
+                {
+                    title: "Перейти в Facebook",
+                    href: "https://www.facebook.com/k.tselishcheva",
+                    icon: "facebook",
+                },
+                {
+                    title: "Перейти в Instagram",
+                    href: "",
+                    icon: "instagram",
+                },
+                {
+                    title: "Позвонить в WhatsApp",
+                    href: "https://api.whatsapp.com/send?phone=79836084467",
+                    icon: "whatsapp",
+                },
+                {
+                    title: "Позвонить в Telegram",
+                    href: "",
+                    icon: "telegram",
+                },
+            ];
+        },
     };
 </script>
 
-<template>
+<template functional>
     <div class="social-links">
         <ul class="social-links__list">
-            <li class="social-links__item">
+            <li class="social-links__item" v-for="link in $options.links()" :key="link.icon">
                 <a
-                    href="https://www.facebook.com/k.tselishcheva"
+                    :href="link.href"
                     class="social-links__link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Перейти в Facebook"
+                    :title="link.title"
                 >
-                    <img src="@/assets/icons/icon-facebook.svg" alt="Перейти в Facebook" />
-                </a>
-            </li>
-            <li class="social-links__item">
-                <a
-                    href=""
-                    class="social-links__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Перейти в Instagram"
-                >
-                    <img src="@/assets/icons/icon-instagram.svg" alt="Перейти в Instagram" />
-                </a>
-            </li>
-            <li class="social-links__item">
-                <a
-                    href="https://api.whatsapp.com/send?phone=79836084467"
-                    class="social-links__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Позвонить в WhatsApp"
-                >
-                    <img src="@/assets/icons/icon-whatsapp.svg" alt="Позвонить в WhatsApp" />
-                </a>
-            </li>
-            <li class="social-links__item">
-                <a
-                    href=""
-                    class="social-links__link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Позвонить в Telegram"
-                >
-                    <img src="@/assets/icons/icon-telegram.svg" alt="Позвонить в Telegram" />
+                    <img :src="`/static/icons/${link.icon}.svg`" :alt="link.title" />
                 </a>
             </li>
         </ul>

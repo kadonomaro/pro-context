@@ -7,8 +7,8 @@
 <template functional>
     <div class="home-banner">
         <picture>
-            <source media="(max-width: 600px)" srcset="@/assets/images/banner--mobile.png" />
-            <img src="@/assets/images/banner.png" alt="" />
+            <source media="(max-width: 600px)" srcset="/static/banner--mobile.png" />
+            <img src="/static/banner.png" alt="" />
         </picture>
     </div>
 </template>

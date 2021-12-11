@@ -27,7 +27,7 @@
                 <span>&copy; {{ getYear }}</span>
                 <div class="footer__develop">
                     <div>Airsoftware</div>
-                    <img src="@/assets/images/airsoftware.png" alt="Airsoftware" />
+                    <img src="/static/airsoftware.png" alt="Airsoftware" />
                 </div>
             </div>
         </div>
