@@ -4,16 +4,6 @@
         links() {
             return [
                 {
-                    title: "Перейти в Facebook",
-                    href: "https://www.facebook.com/k.tselishcheva",
-                    icon: "facebook",
-                },
-                {
-                    title: "Перейти в Instagram",
-                    href: "",
-                    icon: "instagram",
-                },
-                {
                     title: "Позвонить в WhatsApp",
                     href: "https://api.whatsapp.com/send?phone=79836084467",
                     icon: "whatsapp",

@@ -38,7 +38,7 @@
                 <img :src="previewImage" :alt="card.title" />
             </div>
             <div class="card-list-item__content">
-                <div class="card-list-item__head">
+                <div v-if="card.tags" class="card-list-item__head">
                     <div class="card-list-item__tags">
                         <div class="card-list-item__tag" v-for="tag in card.tags" :key="tag">
                             {{ tag }}
@@ -66,7 +66,6 @@
 <style lang="scss">
     .card-list-item-link {
         display: block;
-        height: 100%;
         color: inherit;
         text-decoration: none;
     }
@@ -75,6 +74,7 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        padding: 10px;
         text-decoration: none;
         background-color: #fff;
         border-radius: 16px;
@@ -100,7 +100,7 @@
             box-shadow: none;
         }
         .card-list-item__image {
-            width: calc(100% - 12px);
+            width: 100%;
             img {
                 width: 60%;
             }
@@ -108,20 +108,16 @@
                 padding-bottom: 75%;
             }
         }
-        .card-list-item__content {
-            padding: 10px 16px 16px 16px;
-        }
     }
 
     .card-list-item__image {
         position: relative;
         flex-shrink: 0;
-        width: calc(100% - 12px);
-        margin: 6px;
         border-radius: 12px;
         overflow: hidden;
         @include bp($bp-desktop-md) {
             width: 200px;
+            margin-right: 12px;
         }
         &::before {
             content: "";
@@ -149,10 +145,7 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        padding: 10px 16px 16px 16px;
-        @include bp($bp-desktop-md) {
-            padding: 16px 16px 16px 10px;
-        }
+        padding: 10px 0;
     }
 
     .card-list-item__head {
@@ -180,20 +173,17 @@
 
     .card-list-item__title {
         margin: 0 0 15px;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
         line-height: 24px;
     }
 
     .card-list-item__text {
         flex-grow: 1;
-        color: #374a59;
+        color: $color-text;
         font-size: 14px;
         font-weight: 400;
         line-height: 22px;
-        @include bp($bp-mobile) {
-            font-size: 16px;
-        }
     }
 
     .card-list-item__footer {
