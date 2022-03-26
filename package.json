@@ -6,10 +6,12 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "prod": "npm run build && firebase deploy",
-        "fix:prettier": "prettier --write \"**/*.*\""
+        "prod": "npm run browserslist:update && npm run build && firebase deploy",
+        "fix:prettier": "prettier --write \"**/*.*\"",
+        "browserslist:update": "npx --yes browserslist@latest --update-db"
     },
     "dependencies": {
+        "caniuse-lite": "^1.0.30001320",
         "core-js": "^3.6.5",
         "swiper": "^6.8.1",
         "vue": "^2.6.11",

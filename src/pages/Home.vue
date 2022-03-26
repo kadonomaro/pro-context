@@ -66,10 +66,10 @@
 </script>
 <template>
     <div class="home">
-        <div class="home__banner">
+        <div class="home__section">
             <home-banner></home-banner>
         </div>
-        <div class="home__promo">
+        <div class="home__section">
             <home-promo></home-promo>
         </div>
         <h2 class="title-main">Новости</h2>
@@ -87,7 +87,7 @@
                 </div>
             </main>
             <template v-if="recommendedPosts">
-                <aside class="home__side js-scroll-sidebar" v-if="recommendedPosts.length">
+                <aside class="home__side" v-if="recommendedPosts.length">
                     <post-aside
                         :posts="recommendedPosts"
                         title="Рекомендуем для чтения"
@@ -100,30 +100,24 @@
 
 <style lang="scss">
     .home {
+        padding-bottom: 30px;
         @include bp($bp-mobile) {
-            padding-top: 30px;
+            padding: 30px 0 60px;
         }
     }
 
     .home__inner {
         @include bp($bp-desktop-sm) {
             display: flex;
-            align-items: flex-start;
-        }
-    }
-
-    .home__banner,
-    .home__promo {
-        margin-bottom: 20px;
-        @include bp($bp-desktop-sm) {
-            margin-bottom: 40px;
         }
     }
 
     .home__section {
-        margin-bottom: 20px;
-        @include bp($bp-desktop-sm) {
-            margin-bottom: 40px;
+        &:not(:last-child) {
+            margin-bottom: 20px;
+            @include bp($bp-desktop-sm) {
+                margin-bottom: 40px;
+            }
         }
     }
 

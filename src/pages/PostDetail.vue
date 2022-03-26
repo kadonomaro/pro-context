@@ -113,14 +113,16 @@
             </div>
         </main>
         <template v-if="posts">
-            <aside v-if="posts.length" class="card-detail__side js-scroll-sidebar">
-                <post-aside :posts="posts" title="Похожие статьи"></post-aside></aside
-        ></template>
+            <aside v-if="posts.length" class="card-detail__side">
+                <post-aside :posts="posts" title="Похожие статьи"></post-aside>
+            </aside>
+        </template>
     </div>
 </template>
 
 <style lang="scss">
     @import "~@/assets/css/card-detail.scss";
+
     .card-detail__side {
         margin-top: 24px;
         @include bp($bp-desktop-sm) {

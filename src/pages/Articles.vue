@@ -82,7 +82,7 @@
         <h1 class="title-main">Все статьи</h1>
         <div class="articles__inner">
             <aside class="articles__side">
-                <div class="articles__filter js-scroll-filter">
+                <div class="articles__filter">
                     <post-filter :tags="postsTags" :authors="postsAuthors"></post-filter>
                 </div>
             </aside>
@@ -107,7 +107,6 @@
     .articles__inner {
         @include bp($bp-desktop-sm) {
             display: flex;
-            align-items: flex-start;
         }
     }
 
@@ -128,5 +127,9 @@
 
     .articles__filter {
         margin-bottom: 20px;
+        @include bp($bp-desktop-sm) {
+            @include sticky(100px);
+            margin-bottom: 0;
+        }
     }
 </style>

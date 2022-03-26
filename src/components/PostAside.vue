@@ -1,5 +1,4 @@
 <script>
-    import { isMobile, stickyScroll, throttle } from "@/utils";
     import Swiper from "swiper/swiper-bundle.min";
     import CardListItem from "@/components/CardListItem";
 
@@ -17,12 +16,10 @@
         },
         data() {
             return {
-                stickyScrollWithThrottle: throttle(this.stickyImageScroll, 35),
                 slider: null,
             };
         },
         mounted() {
-            window.addEventListener("scroll", this.stickyScrollWithThrottle);
             this.$nextTick(() => {
                 this.slider = new Swiper(".js-cards-slider", {
                     spaceBetween: 20,
@@ -38,30 +35,11 @@
                 });
             });
         },
-        beforeDestroy() {
-            window.removeEventListener("scroll", this.stickyScrollWithThrottle);
-        },
-        methods: {
-            stickyImageScroll() {
-                if (!isMobile()) {
-                    const el = document.querySelector(".js-scroll-sidebar");
-                    const elWrap = document.querySelector(".js-scroll-sidebar-wrapper");
-                    if (el && elWrap) {
-                        stickyScroll({
-                            el,
-                            elWrap,
-                            topMargin: 90,
-                            classNameDivider: "footer",
-                        });
-                    }
-                }
-            },
-        },
     };
 </script>
 
 <template>
-    <div class="post-aside js-scroll-sidebar-wrapper">
+    <div class="post-aside">
         <h2 class="post-aside__title">{{ title }}</h2>
         <div class="post-aside__slider">
             <div class="swiper-container js-cards-slider">
@@ -84,6 +62,7 @@
 
 <style lang="scss">
     .post-aside {
+        @include sticky(100px);
         padding: 16px;
         background-color: #fff;
         border-radius: 16px;

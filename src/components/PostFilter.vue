@@ -1,6 +1,5 @@
 <script>
     import { mapActions, mapState } from "vuex";
-    import { isMobile, stickyScroll, throttle } from "@/utils";
 
     export default {
         name: "PostFilter",
@@ -14,7 +13,6 @@
                     tag: "all",
                     author: "all",
                 },
-                stickyScrollWithThrottle: throttle(this.stickyImageScroll, 35),
             };
         },
         computed: {
@@ -29,11 +27,8 @@
         mounted() {
             this.filter.tag = this.filterTag;
             this.filter.author = this.filterAuthor;
-            window.addEventListener("scroll", this.stickyScrollWithThrottle);
         },
-        beforeDestroy() {
-            window.removeEventListener("scroll", this.stickyScrollWithThrottle);
-        },
+
         methods: {
             ...mapActions(["setFilter"]),
             submitHandler() {
@@ -44,26 +39,12 @@
                 this.filter.author = "all";
                 this.setFilter(this.filter);
             },
-            stickyImageScroll() {
-                if (!isMobile()) {
-                    const el = document.querySelector(".js-scroll-filter");
-                    const elWrap = document.querySelector(".js-scroll-filter-wrapper");
-                    if (el && elWrap) {
-                        stickyScroll({
-                            el,
-                            elWrap,
-                            topMargin: 90,
-                            classNameDivider: "footer",
-                        });
-                    }
-                }
-            },
         },
     };
 </script>
 
 <template>
-    <div class="post-filter js-scroll-filter-wrapper">
+    <div class="post-filter">
         <form class="post-filter__form" @submit.prevent="submitHandler">
             <label class="post-filter__label">
                 <span class="post-filter__name">Тема</span>
