@@ -78,13 +78,13 @@
         text-decoration: none;
         background-color: #fff;
         border-radius: 16px;
-        box-shadow: 0 0 25px $color-shadow;
+        border: 2px solid $color-border;
         overflow: hidden;
-        transition: box-shadow 0.2s ease-in;
+        transition: border-color 0.2s ease-in;
         @include bp($bp-desktop-md) {
             flex-direction: row;
-            &:hover {
-                box-shadow: 0 0 7px #f1f1f1;
+            &:hover:not(.card-list-item--vertical) {
+                border-color: $color-border--hover;
                 .card-list-item__image img {
                     transform: translate(-50%, -50%) scale(1.03);
                 }
@@ -94,11 +94,6 @@
 
     .card-list-item--vertical {
         flex-direction: column;
-        background-color: #f9f9f9;
-        box-shadow: none;
-        &:hover {
-            box-shadow: none;
-        }
         .card-list-item__image {
             width: 100%;
             img {

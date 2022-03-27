@@ -94,7 +94,7 @@
     @import "~@/assets/css/ui/base-button.scss";
     .post-filter {
         border-radius: 16px;
-        box-shadow: 0 0 25px $color-shadow;
+        border: 2px solid $color-border;
         box-sizing: border-box;
     }
 

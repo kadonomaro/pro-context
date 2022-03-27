@@ -24,11 +24,11 @@
             top: 0;
             bottom: 0;
             left: 0;
-            right: 0;
+            width: 100%;
         }
         @include bp($bp-mobile) {
             margin: 0;
-            padding-bottom: 21%;
+            padding-bottom: 21.4%;
             border-radius: 16px;
         }
     }

@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "caniuse-lite": "^1.0.30001320",
+        "contentful": "^9.1.18",
         "core-js": "^3.6.5",
         "swiper": "^6.8.1",
         "vue": "^2.6.11",

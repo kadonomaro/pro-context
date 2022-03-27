@@ -43,12 +43,12 @@
         padding: 16px;
         background-color: #fff;
         border-radius: 16px;
-        box-shadow: 0 0 25px $color-shadow;
+        border: 2px solid $color-border;
         cursor: pointer;
-        transition: box-shadow 0.2s ease-in;
+        transition: border-color 0.2s ease-in;
         @include bp($bp-desktop-sm) {
             &:hover {
-                box-shadow: 0 0 7px $color-shadow;
+                border-color: $color-border--hover;
             }
         }
     }

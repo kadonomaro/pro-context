@@ -34,11 +34,14 @@
         left: 0;
         right: 0;
         padding: 12px 0 6px;
-        background-color: #f2f2f2;
-        border-bottom: 1px solid #d8d8d8;
+        background-color: #fff;
         box-shadow: 0 0 20px rgba(#000, 0.1);
         @include bp($bp-mobile) {
             padding-bottom: 12px;
+        }
+        @supports (backdrop-filter: blur()) {
+            backdrop-filter: blur(5px);
+            background-color: rgba(#fff, 0.85);
         }
     }
 

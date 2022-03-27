@@ -66,8 +66,9 @@
         padding: 16px;
         background-color: #fff;
         border-radius: 16px;
-        box-shadow: 0 0 25px $color-shadow;
+        border: 2px solid $color-border;
         box-sizing: border-box;
+        overflow: hidden;
         .card-list__item {
             max-width: 100%;
             padding: 0 0 16px;
@@ -81,6 +82,9 @@
 
     .post-aside__slider {
         position: relative;
+        .swiper-container {
+            overflow: visible;
+        }
         .swiper-pagination {
             width: 100%;
             height: 3px;
