@@ -94,8 +94,11 @@
         .swiper-slide {
             height: auto;
         }
-        .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-            background-color: #007ae9;
+        .swiper-pagination-progressbar {
+            background-color: $color-border;
+            .swiper-pagination-progressbar-fill {
+                background-color: $color-link;
+            }
         }
     }
 

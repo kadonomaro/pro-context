@@ -94,6 +94,8 @@
 
     .card-list-item--vertical {
         flex-direction: column;
+        border: none;
+        background-color: $color-border;
         .card-list-item__image {
             width: 100%;
             img {
@@ -151,14 +153,13 @@
     .card-list-item__tags {
         display: flex;
         flex-wrap: wrap;
+        margin: 0 -3px -3px;
     }
 
     .card-list-item__tag {
         text-transform: uppercase;
         font-size: 12px;
-        &:not(:last-child) {
-            margin-right: 5px;
-        }
+        margin: 0 3px 3px;
     }
 
     .card-list-item__date {
