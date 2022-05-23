@@ -1,5 +1,6 @@
 <script>
     import AuthorCard from "@/components/AuthorCard";
+
     export default {
         name: "AuthorList",
         components: { AuthorCard },

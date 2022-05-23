@@ -1,5 +1,6 @@
 <script>
     import TheSocialLinks from "@/components/common/TheSocialLinks";
+
     export default {
         name: "TheFooter",
         components: { TheSocialLinks },

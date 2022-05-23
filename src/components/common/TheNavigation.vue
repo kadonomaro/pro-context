@@ -1,25 +1,26 @@
 <script>
     export default {
         name: "TheNavigation",
+        routes() {
+            return [
+                { title: "Новости", name: "News" },
+                { title: "Все статьи", name: "Articles" },
+                { title: "Авторы", name: "Authors" },
+            ];
+        },
     };
 </script>
 
-<template>
+<template functional>
     <nav class="navigation">
         <ul class="navigation__list">
-            <li class="navigation__item">
-                <router-link class="navigation__link" :to="{ name: 'News' }">
-                    Новости
-                </router-link>
-            </li>
-            <li class="navigation__item">
-                <router-link class="navigation__link" :to="{ name: 'Articles' }">
-                    Все статьи
-                </router-link>
-            </li>
-            <li class="navigation__item">
-                <router-link class="navigation__link" :to="{ name: 'Authors' }">
-                    Авторы
+            <li
+                v-for="(route, index) in $options.routes()"
+                :key="index"
+                class="navigation__item"
+            >
+                <router-link class="navigation__link" :to="{ name: route.name }">
+                    {{ route.title }}
                 </router-link>
             </li>
         </ul>
